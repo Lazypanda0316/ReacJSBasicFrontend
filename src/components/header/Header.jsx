@@ -1,6 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import herovid from "../../assets/videos/herovid.mp4";
+import HowWeWork from "../../pages/howWework/HowWeWork";
+import MeetCodesc from "../../pages/meetCodesc/MeetCodesc";
+import OurMission from "../../pages/ourMission/OurMission";
+import TrustedBy from "../../pages/trustedBy/TrustedBy";
 
 const Header = () => {
   return (
@@ -90,7 +94,7 @@ const Header = () => {
             </button>
           </div>
 
-          <div className="font-archivo py-8">
+          <div className="font-archivo py-8 mb-10cd">
             <div className="flex justify-around items-center text-center text-white">
               <div>
                 <p className="text-yellow-300 text-4xl font-bold ">10+</p>
@@ -108,6 +112,12 @@ const Header = () => {
           </div>
         </div>
       </div>
+      <MeetCodesc/>
+      <TrustedBy/>
+      <OurMission/>
+      <HowWeWork />
+      
+
     </>
   );
 };
