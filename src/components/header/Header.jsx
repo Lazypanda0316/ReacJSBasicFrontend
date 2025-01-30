@@ -5,6 +5,9 @@ import HowWeWork from "../../pages/howWework/HowWeWork";
 import MeetCodesc from "../../pages/meetCodesc/MeetCodesc";
 import OurMission from "../../pages/ourMission/OurMission";
 import TrustedBy from "../../pages/trustedBy/TrustedBy";
+import ServiceWeProvide from "../../pages/serviceWeProvide/ServiceWeProvide";
+import NepalCashmerer from "../../pages/nepalCashmere/NepalCashmerer";
+import WhatWeBuild from "../../pages/whatWeBuild/WhatWeBuild";
 
 const Header = () => {
   return (
@@ -116,6 +119,9 @@ const Header = () => {
       <TrustedBy/>
       <OurMission/>
       <HowWeWork />
+      <ServiceWeProvide/>
+      <WhatWeBuild/>
+      <NepalCashmerer/>
       
 
     </>
