@@ -7,7 +7,7 @@ const OurMission = () => {
       {/* Background Video */}
       <video
         src={typing}
-        className="absolute top-0 left-0 w-[100%] h-[100%] object-fill"
+        className="absolute top-0 left-0 w-full h-full object-cover"
         loop
         autoPlay
         muted

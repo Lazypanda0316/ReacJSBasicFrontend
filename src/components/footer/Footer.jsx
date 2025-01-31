@@ -8,9 +8,9 @@ const Footer = () => {
   const getLatestYEar = new Date().getFullYear()
  
   return (
-    <div className="font-archivo bg-sky-800 text-white py-10 my-0">
+        <div className="font-archivo bg-sky-800 text-white py-10 my-0">
+        <img src="images/Tech.png"/>
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-       
         <div className="flex flex-col items-center md:items-start">
           <img src="images/CodescLogo.png" className="w-70 h-auto mb-4" alt="Codesc Logo" />
           <p className="text-center md:text-left text-xm">
@@ -36,7 +36,7 @@ const Footer = () => {
           </nav>
         </div>
 
-        <div className="flex flex-col items-center md:items-start">
+        <div className="flex flex-col items-center md:items-start ">
           <p className="font-bold text-2xl mb-4 text-center md:text-left">Contact Info</p>
           <nav>
             <ul className="space-y-2 text-center md:text-left text-xs">

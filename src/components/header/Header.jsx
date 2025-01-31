@@ -8,6 +8,7 @@ import TrustedBy from "../../pages/trustedBy/TrustedBy";
 import ServiceWeProvide from "../../pages/serviceWeProvide/ServiceWeProvide";
 import NepalCashmerer from "../../pages/nepalCashmere/NepalCashmerer";
 import WhatWeBuild from "../../pages/whatWeBuild/WhatWeBuild";
+import DynamicTeam from "../../pages/dynamicTeam/DynamicTeam";
 
 const Header = () => {
   return (
@@ -122,6 +123,7 @@ const Header = () => {
       <ServiceWeProvide/>
       <WhatWeBuild/>
       <NepalCashmerer/>
+      <DynamicTeam/>
       
 
     </>
