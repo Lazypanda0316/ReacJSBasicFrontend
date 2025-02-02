@@ -16,9 +16,9 @@ const MeetCodesc = () => {
         />
       </div>
 
-      <div className="relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div className="relative max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-12 items-center">
       
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-1 sm:gap-4 lg:grid-cols-2 lg:gap-8">
           <div className="col-span-1 row-span-2">
             <img
               src="/images/main.png"
@@ -42,16 +42,16 @@ const MeetCodesc = () => {
           </div>
         </div>
 
-        <div className="relative flex flex-col justify-center space-y-6 text-center md:text-left">
-          <h1 className="text-5xl font-bold text-yellow-400">Meet Codesc</h1>
-          <h2 className="text-2xl text-blue-300">From Concept to Reality</h2>
-          <p className="text-lg leading-relaxed">
+        <div className="relative flex flex-col justify-center space-y-6 text-center sm:text-center md:text-left">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-yellow-400">Meet Codesc</h1>
+          <h2 className="text-xl sm:text-2xl lg:text-3xl text-blue-300">From Concept to Reality</h2>
+          <p className="text-lg leading-relaxed sm:text-base">
             At Codesc, we aim to empower businesses with innovative IT solutions
             that foster growth and efficiency, helping our clients thrive in a
             rapidly changing digital world.
           </p>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
             <button
               className="flex items-center gap-2 px-4 py-2 bg-white/10 text-gray-300 rounded-full font-medium transition-all hover:bg-white/20"
               aria-label="Innovative Solution"
