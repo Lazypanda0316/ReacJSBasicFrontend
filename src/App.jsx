@@ -1,11 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/header/Header";
 import Home from "./pages/home/Home";
 import Footer from "./components/footer/Footer";
 import AboutUs from "./pages/aboutUs/AboutUs";
 import HowWeWork from "./pages/howWeWork/HowWeWork";
 import { useEffect, useState } from "react";
 import ProductView from "./pages/productView/ProductView";
+import Login from "./pages/login/Login";
+import Signup from "./pages/signUp/SignUp";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -34,15 +35,16 @@ function App() {
   return (
     <>
     
-      <Router>
-        {/* <Header /> */}
+      <Router>       
         <Routes>
-          <Route path="/" element={<Home items={items} toggleReadMore={toggleReadMore} expanded={expanded} />} />
+          <Route path="/" element={<Home />} />
           <Route path="/product-view/:id" element={<ProductView items={items} />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/sign-up" element={<Signup />} />
           <Route path="/how-we-work" element={<HowWeWork />} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </Router>
     </>
   );
