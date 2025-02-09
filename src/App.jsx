@@ -44,7 +44,7 @@ function App() {
           <Route path="/sign-up" element={<Signup />} />
           <Route path="/how-we-work" element={<HowWeWork />} />
         </Routes>
-        {/* <Footer /> */}
+        <Footer />
       </Router>
     </>
   );

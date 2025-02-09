@@ -1,15 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import ExtraHeader from "../../components/header/ExtraHeader";
 import { NavLink } from "react-router-dom";
 
 const Login = () => {
+  const [loginValue, setLoginValue] = useState({
+    email: "",
+    password: "",
+  });
+  const { email, password } = loginValue;
+  const handleChange = (e) => {
+    let { name, value } = e.target;
+    setLoginValue((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Login Form Submitted successFully!");
+    alert("Login Form Submitted successFully!");
+  };
   return (
-    <div className="relative h-screen">
+    <div className="relative min-h-screen">
       <ExtraHeader />
       <div className="flex justify-center items-center h-full px-4">
-        {/* Left side image */}
         <div className="hidden lg:block lg:w-1/2 h-full">
           <img
             src="images/login.jpg"
@@ -18,7 +34,6 @@ const Login = () => {
           />
         </div>
 
-        {/* Right side form */}
         <div className="w-full sm:w-3/4 md:w-2/3 lg:w-1/3 bg-white p-6 md:p-8 rounded-lg shadow-lg">
           <h1 className="font-bold text-2xl text-gray-700 text-center mb-6">
             Welcome!
@@ -30,6 +45,9 @@ const Login = () => {
                 type="email"
                 className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Enter your email"
+                name="email"
+                value={email}
+                onChange={handleChange}
               />
             </div>
             <div className="mb-4">
@@ -38,6 +56,9 @@ const Login = () => {
                 type="password"
                 className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Enter your password"
+                name="password"
+                value={password}
+                onChange={handleChange}
               />
             </div>
             <div className="flex justify-end">
