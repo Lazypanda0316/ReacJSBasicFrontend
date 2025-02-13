@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import ProductView from "./pages/productView/ProductView";
 import Login from "./pages/login/Login";
 import Signup from "./pages/signUp/SignUp";
+import ContactUs from "./pages/contactUs/ContactUs";
+import SideBar from "./components/admin/sideBar/SideBar";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -37,14 +39,17 @@ function App() {
     
       <Router>       
         <Routes>
-          <Route path="/" element={<Home />} />
+          {/* <Route path="/" element={<Home />} />
           <Route path="/product-view/:id" element={<ProductView items={items} />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/login" element={<Login />} />
           <Route path="/sign-up" element={<Signup />} />
           <Route path="/how-we-work" element={<HowWeWork />} />
+          <Route path="/contact-us" element={<ContactUs/>}/> */}
+          <Route path="/side-bar" element={<SideBar/>}/>
+ 
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </Router>
     </>
   );

@@ -44,7 +44,7 @@ const Footer = () => {
           <nav>
             <ul className="space-y-2 text-center md:text-left text-xs">
               <li className="hover:text-blue-700 cursor-pointer">
-                <NavLink to="/home">Home</NavLink>
+                <NavLink to="/">Home</NavLink>
               </li>
               <li className="hover:text-blue-700 cursor-pointer">
                 <NavLink to="/about-us">About Us</NavLink>

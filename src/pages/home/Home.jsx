@@ -9,6 +9,10 @@ import WhatWeBuild from "../whatWeBuild/WhatWeBuild";
 import DynamicTeam from "../dynamicTeam/DynamicTeam";
 import NepalCashmere from "../nepalCashmere/NepalCashmerer";
 import Header from "../../components/header/Header";
+import ContactUs from "../contactUs/ContactUs";
+import SideBar from "../../components/admin/sideBar/SideBar";
+import AppHeader from "../../components/admin/appHeader/AppHeader";
+
 
 const Home = ({ items, toggleReadMore, expanded }) => {
   return (
@@ -73,6 +77,9 @@ const Home = ({ items, toggleReadMore, expanded }) => {
       <WhatWeBuild />
       <NepalCashmere />
       <DynamicTeam />
+      <ContactUs/>
+      <SideBar/>
+      <AppHeader/>
     </>
   );
 };
