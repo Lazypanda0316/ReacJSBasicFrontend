@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import herovid from "../../assets/videos/herovid.mp4";
 import MeetCodesc from "../meetCodesc/MeetCodesc";
 import TrustedBy from "../trustedBy/TrustedBy";
@@ -10,15 +10,26 @@ import DynamicTeam from "../dynamicTeam/DynamicTeam";
 import NepalCashmere from "../nepalCashmere/NepalCashmerer";
 import Header from "../../components/header/Header";
 import ContactUs from "../contactUs/ContactUs";
-import SideBar from "../../components/admin/sideBar/SideBar";
-import AppHeader from "../../components/admin/appHeader/AppHeader";
 
+const Home = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-const Home = ({ items, toggleReadMore, expanded }) => {
+  const handleAccept = () => {
+    // Logic for accepting terms
+    console.log("Terms Accepted");
+    setIsModalOpen(false); // Close the modal
+  };
+
+  const handleDecline = () => {
+    // Logic for declining terms
+    console.log("Terms Declined");
+    setIsModalOpen(false); // Close the modal
+  };
+
   return (
     <>
       <div className="relative h-screen overflow-hidden">
-      <Header />
+        <Header />
 
         {/* Background Video */}
         <video
@@ -41,7 +52,11 @@ const Home = ({ items, toggleReadMore, expanded }) => {
             Kickstart Your Journey to Digital Excellence.
           </h2>
 
-          <button className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r text-white from-fuchsia-500 to-blue-800 rounded-xl shadow-lg">
+          {/* Button with Modal */}
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r text-white from-fuchsia-500 to-blue-800 rounded-xl shadow-lg hover:opacity-80 transition"
+          >
             Let's Build Your Dream Project
           </button>
 
@@ -68,6 +83,37 @@ const Home = ({ items, toggleReadMore, expanded }) => {
           </div>
         </div>
       </div>
+
+      {/* Pop-up Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-opacity-50 z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-[640px] h-auto">
+            <h2 className="text-2xl font-bold mb-4 text-gray-900">Terms and Conditions</h2>
+            <p className="text-gray-700 mb-4">
+              We agree to the terms and conditions that are being provided.
+              With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
+
+              The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
+            </p>
+
+            <div className="flex justify-between">
+              <button
+                onClick={handleDecline}
+                className="mt-4 w-40 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition"
+              >
+                Decline
+              </button>
+              <button
+                onClick={handleAccept}
+                className="mt-4 w-40 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+              >
+                Accept
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Other Sections */}
       <MeetCodesc />
       <TrustedBy />
@@ -77,9 +123,7 @@ const Home = ({ items, toggleReadMore, expanded }) => {
       <WhatWeBuild />
       <NepalCashmere />
       <DynamicTeam />
-      <ContactUs/>
-      <SideBar/>
-      <AppHeader/>
+      <ContactUs />
     </>
   );
 };

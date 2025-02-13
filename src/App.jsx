@@ -39,13 +39,13 @@ function App() {
     
       <Router>       
         <Routes>
-          {/* <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/product-view/:id" element={<ProductView items={items} />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/login" element={<Login />} />
           <Route path="/sign-up" element={<Signup />} />
           <Route path="/how-we-work" element={<HowWeWork />} />
-          <Route path="/contact-us" element={<ContactUs/>}/> */}
+          <Route path="/contact-us" element={<ContactUs/>}/>
           <Route path="/side-bar" element={<SideBar/>}/>
  
         </Routes>
