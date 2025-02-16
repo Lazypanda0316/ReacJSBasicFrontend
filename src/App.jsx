@@ -9,6 +9,12 @@ import Login from "./pages/login/Login";
 import Signup from "./pages/signUp/SignUp";
 import ContactUs from "./pages/contactUs/ContactUs";
 import SideBar from "./components/admin/sideBar/SideBar";
+import UserLayout from "./components/userLayout/UserLayout";
+import ProfileInformation from "./pages/profileInformation/ProfileInformation";
+import ChangePassword from "./pages/changePassword/ChangePassword";
+import UserOrderHistory from "./pages/userOrderHistory/UserOrderHistory";
+import TranactionHistory from "./pages/tranactionHistory/TranactionHistory";
+
 
 function App() {
   const [items, setItems] = useState([]);
@@ -47,6 +53,15 @@ function App() {
           <Route path="/how-we-work" element={<HowWeWork />} />
           <Route path="/contact-us" element={<ContactUs/>}/>
           <Route path="/side-bar" element={<SideBar/>}/>
+
+          <Route path="/user" element={<UserLayout />}>
+          <Route index element={<ProfileInformation />} />
+          <Route path="change-password" element={<ChangePassword />} />
+          <Route path="order-history" element={<UserOrderHistory />} />
+          <Route path="tranaction-history" element={<TranactionHistory/>}/>
+
+
+          </Route>
  
         </Routes>
         {/* <Footer /> */}

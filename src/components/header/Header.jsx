@@ -31,7 +31,7 @@ const Header = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/support-team" className="text-white hover:text-blue-700">
+                <NavLink to="/user" className="text-white hover:text-blue-700">
                   Meet Our Team
                 </NavLink>
               </li>
@@ -102,7 +102,7 @@ const Header = () => {
 
       {/* Sidebar Menu */}
       <div
-        className={`fixed top-0 right-0 w-64 h-full bg-gray-900 text-white shadow-lg p-6 transition-transform duration-700 transform ${
+        className={`fixed top-0 right-0 w-64 h-full bg-gray -900 text-white shadow-lg p-6 transition-transform duration-700 transform ${
           sidebarOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
