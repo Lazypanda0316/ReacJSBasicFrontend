@@ -14,6 +14,8 @@ import ProfileInformation from "./pages/profileInformation/ProfileInformation";
 import ChangePassword from "./pages/changePassword/ChangePassword";
 import UserOrderHistory from "./pages/userOrderHistory/UserOrderHistory";
 import TranactionHistory from "./pages/tranactionHistory/TranactionHistory";
+import AdminDashboard from "./components/admin/dashboard/AdminDashboard";
+import Projects from "./pages/project/Projects";
 
 
 function App() {
@@ -52,7 +54,10 @@ function App() {
           <Route path="/sign-up" element={<Signup />} />
           <Route path="/how-we-work" element={<HowWeWork />} />
           <Route path="/contact-us" element={<ContactUs/>}/>
-          <Route path="/side-bar" element={<SideBar/>}/>
+          <Route path="/admin-dashboard" element={<SideBar/>}>
+          <Route index element={<AdminDashboard />} />
+          </Route>
+          <Route path="/Project" element={<Projects/>}/>
 
           <Route path="/user" element={<UserLayout />}>
           <Route index element={<ProfileInformation />} />
@@ -64,7 +69,7 @@ function App() {
           </Route>
  
         </Routes>
-        {/* <Footer /> */}
+        <Footer />
       </Router>
     </>
   );

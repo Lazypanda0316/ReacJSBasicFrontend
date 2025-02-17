@@ -12,7 +12,7 @@ const UserLayout = () => {
     <>
     <div className="flex h-screen">
       {/* Sidebar */}
-      <div className="w-64 bg-gray-800 text-white p-6">
+      <div className="w-64 bg-sky-700 text-white p-6">
         <h2 className="text-2xl font-semibold mb-8 text-center">User Dashboard</h2>
         <ul className="space-y-4">
           <li>
