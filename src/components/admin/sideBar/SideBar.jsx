@@ -27,7 +27,6 @@ const SideBar = () => {
     <>
       <AppHeader />
       <div className="flex h-screen">
-        {/* Sidebar */}
         <div className="w-64 bg-gray-900 text-white flex flex-col p-4 space-y-4">
           <h1 className="font-bold text-3xl mb-4">
             <p className="flex items-center gap-2 text-lg">
@@ -35,13 +34,11 @@ const SideBar = () => {
             </p>
           </h1>
 
-          {/* Dashboard Button */}
           <button className="flex items-center w-full p-2 text-gray-900 dark:text-white hover:bg-gray-700">
             <BiSolidDashboard className="w-5 h-5 text-gray-500" />
             <span className="ms-3">Dashboard</span>
           </button>
 
-          {/* Mailbox Dropdown */}
           <div className="relative w-full">
             <button
               onClick={() => toggleDropdown("mailbox")}
@@ -71,7 +68,6 @@ const SideBar = () => {
             )}
           </div>
 
-          {/* Users Dropdown */}
           <div className="relative w-full">
             <button
               onClick={() => toggleDropdown("users")}
@@ -101,37 +97,6 @@ const SideBar = () => {
             )}
           </div>
 
-          {/* Content Dropdown */}
-          <div className="relative w-full">
-            <button
-              onClick={() => toggleDropdown("content")}
-              className="flex items-center w-full p-2 text-gray-900 dark:text-white hover:bg-gray-700 cursor-pointer"
-            >
-              <TbNotes className="w-5 h-5 text-gray-500" />
-              <span className="flex-1 ms-3">Content</span>
-              <MdArrowDropDown
-                className={`transition-transform duration-300 ${
-                  isContentDropdownOpen ? "rotate-180" : "rotate-0"
-                }`}
-              />
-            </button>
-
-            {isContentDropdownOpen && (
-              <div className="mt-2 w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg">
-                <a className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-700">
-                  All Content
-                </a>
-                <a className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-700">
-                  Add Content
-                </a>
-                <a className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-700">
-                  Settings
-                </a>
-              </div>
-            )}
-          </div>
-
-          {/* Other Sections */}
           <button className="flex items-center w-full p-2 text-gray-900 dark:text-white hover:bg-gray-700">
             <PiSignInBold className="w-5 h-5 text-gray-500" />
             <span className="ms-3">Sign-In</span>
@@ -140,18 +105,40 @@ const SideBar = () => {
             <PiNotePencil className="w-5 h-5 text-gray-500" />
             <span className="ms-3">Sign-Up</span>
           </button>
-
-          <div className="mt-auto text-xs text-center absolute bottom-4 left-1/2 transform -translate-x-1/2 w-full">
-            <p>© {new Date().getFullYear()} All Rights Reserved © Codesc Nepal</p>
-          </div>
         </div>
 
-        {/* Main Content Area (Where Nested Routes will be Rendered) */}
         <div className="flex-1 p-6 bg-gray-100">
+          <Dashboard />
           <Outlet />
         </div>
       </div>
     </>
+  );
+};
+
+const Dashboard = () => {
+  const invoiceData = [
+    { count: 2478, label: "Total Invoices", color: "bg-orange-400" },
+    { count: 983, label: "Paid Invoices", color: "bg-green-400" },
+    { count: 1256, label: "Unpaid Invoices", color: "bg-purple-400" },
+    { count: 652, label: "Total Invoices Sent", color: "bg-blue-400" },
+  ];
+
+  return (
+    <div className="p-6 bg-gray-100 min-h-screen">
+      <h1 className="text-2xl font-bold mb-4">Dashboard Overview</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        {invoiceData.map((invoice, index) => (
+          <div
+            key={index}
+            className={`${invoice.color} text-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center`}
+          >
+            <span className="text-3xl font-bold">{invoice.count}</span>
+            <span className="text-sm">{invoice.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 
