@@ -36,7 +36,7 @@ const SideBar = () => {
 
           <button className="flex items-center w-full p-2 text-gray-900 dark:text-white hover:bg-gray-700">
             <BiSolidDashboard className="w-5 h-5 text-gray-500" />
-            <span className="ms-3">Dashboard</span>
+            <NavLink to="/admin-dashboard"><span className="ms-3">Dashboard</span></NavLink>
           </button>
 
           <div className="relative w-full">

@@ -17,7 +17,7 @@ import TranactionHistory from "./pages/tranactionHistory/TranactionHistory";
 import AdminDashboard from "./components/admin/dashboard/AdminDashboard";
 import Projects from "./pages/project/Projects";
 import AllMail from "./components/admin/allMail/AllMail";
-
+import AddProduct from "./components/admin/addproduct/AddProduct";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -45,32 +45,33 @@ function App() {
 
   return (
     <>
-    
-      <Router>       
+      <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/product-view/:id" element={<ProductView items={items} />} />
+          <Route
+            path="/product-view/:id"
+            element={<ProductView items={items} />}
+          />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/login" element={<Login />} />
           <Route path="/sign-up" element={<Signup />} />
           <Route path="/how-we-work" element={<HowWeWork />} />
-          <Route path="/contact-us" element={<ContactUs/>}/>
-          <Route path="/admin-dashboard" element={<SideBar/>}>
-          <Route index element={<AdminDashboard />} />
-          <Route path="all-mail" element={<AllMail/>}/>
+          <Route path="/contact-us" element={<ContactUs />} />
+
+          <Route path="/admin-dashboard" element={<SideBar />}>
+            <Route index element={<AdminDashboard />} />
+            <Route path="all-mail" element={<AllMail />} /> 
+
+            <Route path="add-product" element={<AddProduct />} />
+          </Route>
+
+          <Route path="/project" element={<Projects />} />
           <Route path="user" element={<UserLayout />}>
-          
+            <Route index element={<ProfileInformation />} />
+            <Route path="change-password" element={<ChangePassword />} />
+            <Route path="order-history" element={<UserOrderHistory />} />
+            <Route path="tranaction-history" element={<TranactionHistory />} />
           </Route>
-          
-          <Route path="project" element={<Projects/>}/>
-          <Route index element={<ProfileInformation />} />
-          <Route path="change-password" element={<ChangePassword />} />
-          <Route path="order-history" element={<UserOrderHistory />} />
-          <Route path="tranaction-history" element={<TranactionHistory/>}/>
-
-
-          </Route>
- 
         </Routes>
         <Footer />
       </Router>
