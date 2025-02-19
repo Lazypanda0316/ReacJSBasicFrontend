@@ -27,7 +27,7 @@ const SideBar = () => {
     <>
       <AppHeader />
       <div className="flex h-screen">
-        <div className="w-64 bg-gray-900 text-white flex flex-col p-4 space-y-4">
+        <div className="w-64 bg-gray-900 text-white flex flex-col p-4 space-y-4 relative">
           <h1 className="font-bold text-3xl mb-4">
             <p className="flex items-center gap-2 text-lg">
               <LuQrCode size={40} /> Codesc Nepal
@@ -45,7 +45,7 @@ const SideBar = () => {
               className="flex items-center w-full p-2 text-gray-900 dark:text-white hover:bg-gray-700 cursor-pointer"
             >
               <TbMailbox className="w-5 h-5 text-gray-500" />
-              <span className=" text-left flex-1 ms-3">MailBox</span>
+              <span className="text-left flex-1 ms-3">MailBox</span>
               <MdArrowDropDown
                 className={`transition-transform duration-300 ${
                   isMailBoxDropdownOpen ? "rotate-180" : "rotate-0"
@@ -74,7 +74,7 @@ const SideBar = () => {
               className="flex items-center w-full p-2 text-gray-900 dark:text-white hover:bg-gray-700 cursor-pointer"
             >
               <HiOutlineUsers className="w-5 h-5 text-gray-500" />
-              <span className="text-left  flex-1 ms-3">Users</span>
+              <span className="text-left flex-1 ms-3">Users</span>
               <MdArrowDropDown
                 className={`transition-transform duration-300 ${
                   isUsersDropdownOpen ? "rotate-180" : "rotate-0"
@@ -105,17 +105,18 @@ const SideBar = () => {
             <PiNotePencil className="w-5 h-5 text-gray-500" />
             <span className="ms-3">Sign-Up</span>
           </button>
+
+          <div className="mt-auto text-center text-gray-400 text-xs py-4">
+            © 2025 All Rights Reserved @Codesc 
+          </div>
         </div>
 
         <div className="flex-1 p-6 bg-gray-100">
-         
           <Outlet />
         </div>
       </div>
     </>
   );
 };
-
-
 
 export default SideBar;
