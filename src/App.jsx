@@ -16,6 +16,7 @@ import UserOrderHistory from "./pages/userOrderHistory/UserOrderHistory";
 import TranactionHistory from "./pages/tranactionHistory/TranactionHistory";
 import AdminDashboard from "./components/admin/dashboard/AdminDashboard";
 import Projects from "./pages/project/Projects";
+import AllMail from "./components/admin/allMail/AllMail";
 
 
 function App() {
@@ -56,10 +57,12 @@ function App() {
           <Route path="/contact-us" element={<ContactUs/>}/>
           <Route path="/admin-dashboard" element={<SideBar/>}>
           <Route index element={<AdminDashboard />} />
+          <Route path="all-mail" element={<AllMail/>}/>
+          <Route path="user" element={<UserLayout />}>
+          
           </Route>
-          <Route path="/Project" element={<Projects/>}/>
-
-          <Route path="/user" element={<UserLayout />}>
+          
+          <Route path="project" element={<Projects/>}/>
           <Route index element={<ProfileInformation />} />
           <Route path="change-password" element={<ChangePassword />} />
           <Route path="order-history" element={<UserOrderHistory />} />
