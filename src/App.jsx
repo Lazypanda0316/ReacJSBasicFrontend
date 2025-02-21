@@ -18,6 +18,8 @@ import AdminDashboard from "./components/admin/dashboard/AdminDashboard";
 import Projects from "./pages/project/Projects";
 import AllMail from "./components/admin/allMail/AllMail";
 import AddProduct from "./components/admin/addproduct/AddProduct";
+import ScrollTop from "./pages/scrollTop/ScrollTop";
+import PageNotFound from "./pages/pageNotFound/PageNotFound";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -71,9 +73,13 @@ function App() {
             <Route path="change-password" element={<ChangePassword />} />
             <Route path="order-history" element={<UserOrderHistory />} />
             <Route path="tranaction-history" element={<TranactionHistory />} />
+
           </Route>
+          <Route path="*" element={<PageNotFound/>}/>
         </Routes>
-        <Footer />
+        
+        {/* <Footer /> */}
+        <ScrollTop/ >
       </Router>
     </>
   );
