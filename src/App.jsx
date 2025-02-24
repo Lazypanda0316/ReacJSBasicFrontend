@@ -20,6 +20,13 @@ import AllMail from "./components/admin/allMail/AllMail";
 import AddProduct from "./components/admin/addproduct/AddProduct";
 import ScrollTop from "./pages/scrollTop/ScrollTop";
 import PageNotFound from "./pages/pageNotFound/PageNotFound";
+import SpareParts from "./pages/spareParts/SpareParts";
+import SpareHeader from "./components/header/SpareHeader";
+import SpareCategory from "./pages/spareCategory/SpareCategory";
+import SpareForm from "./pages/spareForm/SpareForm";
+import SpareHowItWorks from "./pages/spareHowItWorks/SpareHowItWorks";
+import SpareFeatures from "./pages/spareFeatures/SpareFeatures";
+import SpareServices from "./pages/spareServices/SpareServices";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -75,6 +82,13 @@ function App() {
             <Route path="tranaction-history" element={<TranactionHistory />} />
 
           </Route>
+          <Route path="/spare-parts" element={<SpareParts/>}/>
+          <Route path="/spare-header" element={<SpareHeader/>}/>
+          <Route path="/spare-category" element={<SpareCategory/>}/>
+          <Route path="/spare-features" element={<SpareFeatures/>}/>
+          <Route Path="/spare-how" element={<SpareHowItWorks/>}/>
+          <Route path="/spare-services" element={<SpareServices/>}/>
+          <Route path="/spare-form" element={<SpareForm/>}/>
           <Route path="*" element={<PageNotFound/>}/>
         </Routes>
         
