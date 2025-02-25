@@ -98,11 +98,11 @@ function App() {
           <Route path="/spare-form" element={<SpareForm/>}/>
           <Route path="/spare-footer" element={<SpareFooter/>}/>
           <Route path="/spare-about" element={<SpareAboutUs/>}/>
-          {/* <Route path="/spare-Shop" element={<SpareShopPart/>}/> */}
-          {/* <Route path="/spare-dash" eement={<SpareDashboard/>}/> */}
+          <Route path="/spare-Shop" element={<SpareShopPart/>}/>
+          <Route path="/spare-dash" eement={<SpareDashboard/>}/>
           <Route path="/spare-shop" element={<SpareShopPart/>}>
-          <Route index element={<SpareDashboard/>}/>
-          <Route path="spare-dash" element={<SpareFilteredItems/>}/>
+          <Route index element={<SpareFilteredItems/>}/>
+
           </Route>
           
           <Route path="*" element={<PageNotFound/>}/>
