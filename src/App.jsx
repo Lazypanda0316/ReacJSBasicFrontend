@@ -27,6 +27,11 @@ import SpareForm from "./pages/spareForm/SpareForm";
 import SpareHowItWorks from "./pages/spareHowItWorks/SpareHowItWorks";
 import SpareFeatures from "./pages/spareFeatures/SpareFeatures";
 import SpareServices from "./pages/spareServices/SpareServices";
+import SpareFooter from "./components/footer/SpareFooter";
+import SpareAboutUs from "./pages/spareAboutUs/SpareAboutUs";
+import SpareShopPart from "./pages/spareShopPart/SpareShopPart";
+import SpareDashboard from "./pages/spaerDashboard/SpareDashboard";
+import SpareFilteredItems from "./pages/spareFilteredItem/SpareFilteredItems";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -80,8 +85,10 @@ function App() {
             <Route path="change-password" element={<ChangePassword />} />
             <Route path="order-history" element={<UserOrderHistory />} />
             <Route path="tranaction-history" element={<TranactionHistory />} />
-
           </Route>
+
+
+
           <Route path="/spare-parts" element={<SpareParts/>}/>
           <Route path="/spare-header" element={<SpareHeader/>}/>
           <Route path="/spare-category" element={<SpareCategory/>}/>
@@ -89,6 +96,15 @@ function App() {
           <Route Path="/spare-how" element={<SpareHowItWorks/>}/>
           <Route path="/spare-services" element={<SpareServices/>}/>
           <Route path="/spare-form" element={<SpareForm/>}/>
+          <Route path="/spare-footer" element={<SpareFooter/>}/>
+          <Route path="/spare-about" element={<SpareAboutUs/>}/>
+          {/* <Route path="/spare-Shop" element={<SpareShopPart/>}/> */}
+          {/* <Route path="/spare-dash" eement={<SpareDashboard/>}/> */}
+          <Route path="/spare-shop" element={<SpareShopPart/>}>
+          <Route index element={<SpareDashboard/>}/>
+          <Route path="spare-dash" element={<SpareFilteredItems/>}/>
+          </Route>
+          
           <Route path="*" element={<PageNotFound/>}/>
         </Routes>
         

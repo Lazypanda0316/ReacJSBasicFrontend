@@ -4,6 +4,8 @@ import SpareCategory from "../spareCategory/SpareCategory";
 import SpareFeatures from "../spareFeatures/SpareFeatures";
 import SpareHowItWorks from "../spareHowItWorks/SpareHowItWorks";
 import SpareServices from "../spareServices/SpareServices";
+import SpareFooter from "../../components/footer/SpareFooter";
+import SpareAboutUs from "../spareAboutUs/SpareAboutUs";
 
 
 const SpareParts = () => {
@@ -73,6 +75,9 @@ const SpareParts = () => {
       <SpareFeatures/>
       <SpareHowItWorks/>
       <SpareServices/>
+      <SpareAboutUs/>
+      <SpareFooter/>
+      
      
     </>
   );

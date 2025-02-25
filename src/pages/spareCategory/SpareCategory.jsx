@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 
 const ImageSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0); // Track the current slide
@@ -27,7 +28,7 @@ const ImageSlider = () => {
         <img
           src={images[currentIndex]}
           alt={`slide-${currentIndex}`}
-          className="w-100 h-100 object-cover transition-all duration-500 ease-in-out"
+          className="w-90 h-90 object-cover transition-all duration-500 ease-in-out"
         />
       </div>
 
@@ -38,55 +39,18 @@ const ImageSlider = () => {
           onClick={prevImage}
           className="p-2 bg-white text-black rounded-full mx-4"
         >
-          &#60;
+          <FaArrowAltCircleLeft className="text-2xl" />
         </button>
         <button
           type="button"
           onClick={nextImage}
           className="p-2 bg-white text-black rounded-full mx-4"
         >
-          &#62;
+          <FaArrowAltCircleRight className="text-2xl" />
         </button>
       </div>
     </div>
   );
 };
 
-const SpareCategory = () => {
-  return (
-    <>
-      <div className="flex justify-center mt-20">
-        <img
-          src="/images/sparehand.png"
-          alt="Spare Hand"
-          className="w-[] h-[53px]" // Adjust these values for desired image size
-        />
-      </div>
-
-      <div className="flex items-center mb-6 px-60 mt-7">
-        <hr className="flex-grow border-t-3 border-red-500" />
-        <span className="mx-4 text-3xl text-red-500 font-bold">Category</span>
-        <hr className="flex-grow border-t-3 border-red-500" />
-      </div>
-
-      <div className="font-bold text-3xl flex justify-center items-center mb-6 px-60 mt-10">
-        <p>
-          Shop by Category –{" "}
-          <span className="text-red-500"> Made for Your Ride!</span>
-        </p>
-      </div>
-
-      {/* Image Slider Component */}
-      <ImageSlider />
-
-      {/* View All Button */}
-      <div className="flex justify-center items-center mt-6">
-        <button className="bg-black text-white flex justify-center items-center p-7 px-15 rounded-lg mb-15 mt-15">
-          View All
-        </button>
-      </div>
-    </>
-  );
-};
-
-export default SpareCategory;
+export default ImageSlider;
