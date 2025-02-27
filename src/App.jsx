@@ -32,6 +32,8 @@ import SpareAboutUs from "./pages/spareAboutUs/SpareAboutUs";
 import SpareShopPart from "./pages/spareShopPart/SpareShopPart";
 import SpareDashboard from "./pages/spaerDashboard/SpareDashboard";
 import SpareFilteredItems from "./pages/spareFilteredItem/SpareFilteredItems";
+import SpareProducts from "./pages/sapreProducts/SpareProducts";
+import SparePageNotFound from "./pages/sparePageNotFound/SparePageNotFound";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -100,12 +102,18 @@ function App() {
           <Route path="/spare-about" element={<SpareAboutUs/>}/>
           <Route path="/spare-Shop" element={<SpareShopPart/>}/>
           <Route path="/spare-dash" eement={<SpareDashboard/>}/>
+          <Route path="/spare-products" element={<SpareProducts/>}/>
+
           <Route path="/spare-shop" element={<SpareShopPart/>}>
           <Route index element={<SpareFilteredItems/>}/>
+          </Route>
 
+          <Route path="/spare-products" element={<SpareProducts/>}>
+          <Route index element={<SpareFilteredItems/>}/>
           </Route>
           
-          <Route path="*" element={<PageNotFound/>}/>
+          <Route path="*" element={<SparePageNotFound/>}/>
+          {/* <Route path="*" element={<PageNotFound/>}/> */}
         </Routes>
         
         {/* <Footer /> */}

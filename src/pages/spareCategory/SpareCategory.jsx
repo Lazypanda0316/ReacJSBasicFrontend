@@ -24,11 +24,11 @@ const ImageSlider = () => {
   return (
     <div className="relative w-full mt-20">
       {/* Slider Images */}
-      <div className="flex justify-center items-center relative w-full h-56 md:h-96">
+      <div className="flex justify-center items-center relative w-full h-56 sm:h-72 md:h-96">
         <img
           src={images[currentIndex]}
           alt={`slide-${currentIndex}`}
-          className="w-90 h-90 object-cover transition-all duration-500 ease-in-out"
+          className="w-full h-full object-cover transition-all duration-500 ease-in-out"
         />
       </div>
 
@@ -37,16 +37,16 @@ const ImageSlider = () => {
         <button
           type="button"
           onClick={prevImage}
-          className="p-2 bg-white text-black rounded-full mx-4"
+          className="p-2 bg-white text-black rounded-full mx-2 sm:mx-4"
         >
-          <FaArrowAltCircleLeft className="text-2xl" />
+          <FaArrowAltCircleLeft className="text-xl sm:text-2xl" />
         </button>
         <button
           type="button"
           onClick={nextImage}
-          className="p-2 bg-white text-black rounded-full mx-4"
+          className="p-2 bg-white text-black rounded-full mx-2 sm:mx-4"
         >
-          <FaArrowAltCircleRight className="text-2xl" />
+          <FaArrowAltCircleRight className="text-xl sm:text-2xl" />
         </button>
       </div>
     </div>

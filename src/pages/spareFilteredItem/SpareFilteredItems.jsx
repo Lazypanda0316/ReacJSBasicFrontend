@@ -1,32 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 
-const SpareFilteredItems = () => {
-  // Mock data for filtered spare parts
-  const [items] = useState([
-    { id: 1, name: 'Brake Pads', category: 'Brakes and Suspension', price: 50 },
-    { id: 2, name: 'Oil Filter', category: 'Engine Part', price: 15 },
-    { id: 3, name: 'Car Battery', category: 'Battery & Electricals', price: 120 },
-    { id: 4, name: 'Shock Absorber', category: 'Brakes and Suspension', price: 80 },
-    { id: 5, name: 'Engine Oil', category: 'Oil and Fluids', price: 25 },
-  ]);
+const products = [
+  { id: 1, img: "/images/sparepart1.png", name: "Brake Pads", category: "Brakes and Suspension", price: 3000 },
+  { id: 2, img: "/images/sparepart2.png", name: "Oil Filter", category: "Engine Part", price: 3000 },
+  { id: 3, img: "/images/sparepart3.png", name: "Car Battery", category: "Battery & Electricals", price: 3000 },
+  { id: 4, img: "/images/sparepart4.png", name: "Shock Absorber", category: "Brakes and Suspension", price: 3000 },
+  { id: 5, img: "/images/sparepart5.png", name: "Engine Oil", category: "Oil and Fluids", price: 3000 },
+  { id: 6, img: "/images/sparepart5.png", name: "Engine Oil", category: "Oil and Fluids", price: 3000 },
+  { id: 7, img: "/images/sparepart5.png", name: "Engine Oil", category: "Oil and Fluids", price: 3000 },
+  { id: 8, img: "/images/sparepart5.png", name: "Engine Oil", category: "Oil and Fluids", price: 3000 },
+];
 
-  const [filteredItems, setFilteredItems] = useState(items);
-  const [sortBy, setSortBy] = useState('price');
+const ITEMS_PER_PAGE = 6;
 
-  // Filter function for category
+const SpareShopPart = () => {
+  const [filteredItems, setFilteredItems] = useState(products);
+  const [sortBy, setSortBy] = useState("price");
+  const [currentPage, setCurrentPage] = useState(1);
+
   const filterByCategory = (category) => {
-    const filtered = items.filter(item => item.category === category);
-    setFilteredItems(filtered);
+    if (category === "All") {
+      setFilteredItems(products);
+    } else {
+      const filtered = products.filter((item) => item.category === category);
+      setFilteredItems(filtered);
+    }
+    setCurrentPage(1);
   };
 
-  // Sort function for price
   const handleSortChange = (event) => {
     const sortOption = event.target.value;
     setSortBy(sortOption);
     const sortedItems = [...filteredItems].sort((a, b) => {
-      if (sortOption === 'price') {
+      if (sortOption === "price") {
         return a.price - b.price;
-      } else if (sortOption === 'name') {
+      } else if (sortOption === "name") {
         return a.name.localeCompare(b.name);
       }
       return 0;
@@ -34,42 +43,89 @@ const SpareFilteredItems = () => {
     setFilteredItems(sortedItems);
   };
 
-  return (
-    <div className="p-6">
-      <h1 className="text-2xl font-semibold mb-4">Filtered Items</h1>
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const currentItems = filteredItems.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE);
 
-      {/* Filter and Sort Options */}
-      <div className="mb-6">
-        <h3 className="font-semibold">Filter by Category:</h3>
-        <div className="flex space-x-4">
-          <button onClick={() => filterByCategory('Brakes and Suspension')} className="p-2 border rounded">Brakes and Suspension</button>
-          <button onClick={() => filterByCategory('Engine Part')} className="p-2 border rounded">Engine Part</button>
-          <button onClick={() => filterByCategory('Battery & Electricals')} className="p-2 border rounded">Battery & Electricals</button>
-          <button onClick={() => filterByCategory('Oil and Fluids')} className="p-2 border rounded">Oil and Fluids</button>
+  const goToPage = (page) => {
+    if (page > 0 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
+
+  const pageNumbers = [];
+  for (let i = 1; i <= totalPages; i++) {
+    pageNumbers.push(i);
+  }
+
+  return (
+    <div className="container mx-auto p-6">
+      {/* Filter and Sort Section */}
+      <div className="flex flex-col sm:flex-row justify-between items-center mb-6">
+        <div className="flex flex-wrap items-center mb-4 sm:mb-0">
+          <h3 className="font-semibold mr-4">Filter by Category:</h3>
+          <div className="flex flex-wrap space-x-4">
+            <button onClick={() => filterByCategory("All")} className="p-2 border rounded">
+              All
+            </button>
+            <button onClick={() => filterByCategory("Brakes and Suspension")} className="p-2 border rounded">
+              Brakes and Suspension
+            </button>
+            <button onClick={() => filterByCategory("Engine Part")} className="p-2 border rounded">
+              Engine Part
+            </button>
+            <button onClick={() => filterByCategory("Battery & Electricals")} className="p-2 border rounded">
+              Battery & Electricals
+            </button>
+            <button onClick={() => filterByCategory("Oil and Fluids")} className="p-2 border rounded">
+              Oil and Fluids
+            </button>
+          </div>
+        </div>
+
+        <div className="flex items-center">
+          <h2 className="text-2xl font-semibold mr-4">Sort by:</h2>
+          <select onChange={handleSortChange} value={sortBy} className="ml-2 p-1 border rounded">
+            <option value="price">Price</option>
+            <option value="name">Name</option>
+          </select>
         </div>
       </div>
 
-      {/* Sort Options */}
-      <div className="mb-6">
-        <h3 className="font-semibold">Sort by:</h3>
-        <select onChange={handleSortChange} value={sortBy} className="p-2 border rounded">
-          <option value="price">Price</option>
-          <option value="name">Name</option>
-        </select>
-      </div>
-
-      {/* Filtered Items List */}
-      <div className="space-y-4">
-        {filteredItems.map(item => (
-          <div key={item.id} className="p-4 border rounded shadow-sm">
-            <h4 className="text-xl font-semibold">{item.name}</h4>
+      {/* Products Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-6">
+        {currentItems.map((item) => (
+          <div key={item.id} className="border rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition bg-white p-4">
+            <img src={item.img} alt={item.name} className="w-full h-72 object-cover mb-4" />
+            <h3 className="text-lg font-medium">{item.name}</h3>
             <p className="text-gray-700">Category: {item.category}</p>
-            <p className="text-gray-500">Price: ${item.price}</p>
+            <p className="text-red-500 font-bold">Price: Rs.{item.price}</p>
           </div>
         ))}
+      </div>
+
+      {/* Pagination Controls */}
+      <div className="flex justify-center mt-6">
+        <button onClick={() => goToPage(currentPage - 1)} className="p-2 text-red-500 mx-2" disabled={currentPage === 1}>
+          <FaArrowAltCircleLeft size={24} />
+        </button>
+
+        {pageNumbers.map((number) => (
+          <button
+            key={number}
+            onClick={() => goToPage(number)}
+            className={`p-2 text-red-500 font-bold mx-2 ${currentPage === number ? "bg-blue-500 text-white" : ""}`}
+          >
+            {number}
+          </button>
+        ))}
+
+        <button onClick={() => goToPage(currentPage + 1)} className="p-2 text-red-500 mx-2" disabled={currentPage === totalPages}>
+          <FaArrowAltCircleRight size={24} />
+        </button>
       </div>
     </div>
   );
 };
 
-export default SpareFilteredItems;
+export default SpareShopPart;

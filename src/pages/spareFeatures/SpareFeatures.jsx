@@ -7,13 +7,14 @@ const SpareFeatures = () => {
         <img
           src="/images/sparehand.png"
           alt="Spare Hand"
-          className="w-[] h-[54px]" // Adjust these values for desired image size
+          className="w-[200px] sm:w-[250px] md:w-[300px] h-auto" // Responsive image width
         />
       </div>
+
       <div>
-        <div className="flex items-center mb-6 px-60 mt-7">
+        <div className="flex items-center mb-6 px-6 sm:px-20 mt-7">
           <hr className="flex-grow border-t-3 border-red-500" />
-          <span className="mx-4 text-7xl text-red-500 font-bold">
+          <span className="mx-4 text-4xl sm:text-5xl md:text-7xl text-red-500 font-bold">
             Featured Product
           </span>
           <hr className="flex-grow border-t-3 border-red-500" />
@@ -21,11 +22,11 @@ const SpareFeatures = () => {
       </div>
 
       <div>
-        <div className="font-bold text-3xl flex justify-center items-center mb-6 px-60 mt-10">
+        <div className="font-bold text-2xl sm:text-3xl md:text-4xl flex justify-center items-center mb-6 px-6 sm:px-20 mt-10">
           <p>Top Picks for Your Car – Trusted by Thousands!</p>
         </div>
-        <div className="flex justify-between gap-4 flex-wrap px-50">
-          <div className="px-8 w-100 h-120 bg-white shadow-lg rounded-lg overflow-hidden">
+        <div className="flex justify-between gap-4 flex-wrap px-4 sm:px-10 md:px-20">
+          <div className="px-8 w-full sm:w-[45%] md:w-[30%] h-120 bg-white shadow-lg rounded-lg overflow-hidden mb-6 sm:mb-0">
             {/* Image Section */}
             <div className="relative w-full h-50 mt-7 overflow-hidden">
               <img
@@ -37,7 +38,7 @@ const SpareFeatures = () => {
 
             {/* Text Section */}
             <div className="p-4">
-              <p className="text-gray-600 text-lg mt-4 ">
+              <p className="text-gray-600 text-lg mt-4">
                 Bosch Premium FILTECH Oil Filter – Model 3323 | High-Performance
                 Engine Protection
               </p>
@@ -45,7 +46,7 @@ const SpareFeatures = () => {
             </div>
           </div>
 
-          <div className="px-8 w-100 h-120 bg-white shadow-lg rounded-lg overflow-hidden">
+          <div className="px-8 w-full sm:w-[45%] md:w-[30%] h-120 bg-white shadow-lg rounded-lg overflow-hidden mb-6 sm:mb-0">
             {/* Image Section */}
             <div className="relative w-full h-52 mt-7 overflow-hidden">
               <img
@@ -57,7 +58,7 @@ const SpareFeatures = () => {
 
             {/* Text Section */}
             <div className="p-4">
-              <p className="text-gray-600 text-lg mt-4 ">
+              <p className="text-gray-600 text-lg mt-4">
                 Bosch Premium FILTECH Oil Filter – Model 3323 | High-Performance
                 Engine Protection
               </p>
@@ -65,7 +66,7 @@ const SpareFeatures = () => {
             </div>
           </div>
 
-          <div className="px-8 w-100 h-120 bg-white shadow-lg rounded-lg overflow-hidden">
+          <div className="px-8 w-full sm:w-[45%] md:w-[30%] h-120 bg-white shadow-lg rounded-lg overflow-hidden">
             {/* Image Section */}
             <div className="relative w-full h-52 mt-7 overflow-hidden">
               <img
@@ -77,7 +78,7 @@ const SpareFeatures = () => {
 
             {/* Text Section */}
             <div className="p-4">
-              <p className="text-gray-600 text-lg mt-4 ">
+              <p className="text-gray-600 text-lg mt-4">
                 Bosch Premium FILTECH Oil Filter – Model 3323 | High-Performance
                 Engine Protection
               </p>
@@ -86,7 +87,7 @@ const SpareFeatures = () => {
           </div>
         </div>
         <div className="flex justify-center items-center mt-6">
-          <button className="bg-black text-white flex justify-center items-center p-7 px-15 rounded-lg mb-15 mt-15">
+          <button className="bg-black text-white p-4 px-10 rounded-lg mb-15 mt-15 text-lg sm:text-xl">
             View All
           </button>
         </div>

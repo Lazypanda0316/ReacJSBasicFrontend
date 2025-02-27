@@ -1,7 +1,5 @@
-import React from 'react';
-import SpareHeader from '../../components/header/SpareHeader';
-import SpareDashboard from '../spaerDashboard/SpareDashboard';
-import SpareFooter from '../../components/footer/SpareFooter';
+import React from "react";
+import SpareDashboard from "../spaerDashboard/SpareDashboard";
 
 const categories = [
   { id: 1, title: "Car Battery", img: "/images/sparepart1.png" },
@@ -9,31 +7,34 @@ const categories = [
   { id: 3, title: "Brake Pads", img: "/images/sparepart3.png" },
   { id: 4, title: "Spark Plug", img: "/images/sparepart4.png" },
   { id: 5, title: "Air Filter", img: "/images/sparepart5.png" },
-  { id: 6, title: "Tire", img: "/images/sparepart6.png" }
+  { id: 6, title: "Tire", img: "/images/sparepart6.png" },
 ];
 
-const SpareShopPart = () => {
+const SpareProducts = () => {
   return (
-    <>
-      {/* Header */}
-      <div>
-        <SpareHeader />
+    <div>
+      {/* Banner Image */}
+      <img
+        src="/images/sparepart9.png"
+        className="w-full"
+        alt="bhroom bhroom"
+      />
+
+      {/* Title and Description */}
+      <div className="mt-16 text-center">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold">
+          Our <span className="text-red-500">Products</span>
+        </h1>
+        <p className="mt-4 text-lg sm:text-xl text-gray-400">
+          Quickly find what you need by searching with a part number or product
+          name – it's simple and dependable!
+        </p>
       </div>
 
-      {/* Banner Section */}
-      <div 
-        className="h-[300px] w-full flex items-center justify-center px-10 bg-gray-100 text-black relative bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/images/spare2.jpg')" }}
-      >
-        <h1 className="text-4xl sm:text-5xl font-bold text-white">SHOP PARTS</h1>
-      </div>
-
-      {/* Categories Section (Single Row) */}
-      <div className="container mx-auto p-6">
-        <h2 className="text-2xl font-semibold text-left mb-6">Sort by Category</h2>
-
-        {/* Flexbox Row with Responsive Layout */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+      {/* Categories Section */}
+      <div className="container mx-auto p-6 mt-10">
+        {/* Flexbox Row for Categories */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
           {categories.map((category) => (
             <div
               key={category.id}
@@ -59,8 +60,8 @@ const SpareShopPart = () => {
       </div>
 
       <SpareDashboard />
-    </>
+    </div>
   );
 };
 
-export default SpareShopPart;
+export default SpareProducts;
