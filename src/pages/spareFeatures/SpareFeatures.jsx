@@ -7,7 +7,7 @@ const SpareFeatures = () => {
         <img
           src="/images/sparehand.png"
           alt="Spare Hand"
-          className="w-[200px] sm:w-[250px] md:w-[300px] h-auto" // Responsive image width
+          className="w-[50px] sm:w-[250px] md:w-[80px] h-auto" // Responsive image width
         />
       </div>
 

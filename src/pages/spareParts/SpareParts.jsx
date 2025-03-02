@@ -32,14 +32,14 @@ const SpareParts = () => {
 
           <div className="mt-6 md:mt-10 space-y-4">
             <div className="flex flex-col md:flex-row gap-4">
-              <select className="p-4 md:p-6 border border-gray-300 rounded-md bg-white text-gray-600 w-full md:w-auto">
+              <select className="p-4 md:p-6 border border-gray-300 rounded-md bg-white text-gray-600 w-full md:w-[400px] lg:w-[500px]">
                 <option>Select Your Location</option>
                 <option>Kathmandu</option>
                 <option>Lalitpur</option>
                 <option>Bhaktapur</option>
               </select>
 
-              <select className="p-4 md:p-6 border border-gray-300 rounded-md bg-white text-gray-600 w-full md:w-auto">
+              <select className="p-4 md:p-6 border border-gray-300 rounded-md bg-white text-gray-600 w-full md:w-[400px] lg:w-[500px]">
                 <option>Select Car Model</option>
                 <option>Toyota</option>
                 <option>Honda</option>
@@ -55,7 +55,7 @@ const SpareParts = () => {
             </select>
           </div>
 
-          <button className="px-4 sm:px-6 md:px-8 py-3 sm:py-4 bg-red-500 text-white shadow-lg hover:opacity-80 transition mt-6 md:mt-10 w-full md:w-auto">
+          <button className="px-4 sm:px-6 md:px-8 py-3 sm:py-4 bg-red-500 text-white shadow-lg hover:opacity-80 transition mt-6 md:mt-10 w-full md:w-[400px] lg:w-[1010px]">
             Find My Spare
           </button>
         </div>
@@ -63,7 +63,7 @@ const SpareParts = () => {
         <div className="hidden md:block">
           <img
             src="/images/spare1.png"
-            className="rounded-bl-[100px] md:rounded-bl-[200px] h-auto max-h-[80vh] w-auto max-w-lg md:max-w-xl lg:max-w-2xl absolute top-1 right-0"
+            className="rounded-bl-[100px] md:rounded-bl-[200px] h-auto max-h-[90vh] w-auto max-w-lg md:max-w-xl lg:max-w-2xl absolute top-1 right-0"
             alt="Mechanic Working on Car"
           />
         </div>
