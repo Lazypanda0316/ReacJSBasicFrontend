@@ -34,6 +34,10 @@ import SpareDashboard from "./pages/spaerDashboard/SpareDashboard";
 import SpareFilteredItems from "./pages/spareFilteredItem/SpareFilteredItems";
 import SpareProducts from "./pages/sapreProducts/SpareProducts";
 import SparePageNotFound from "./pages/sparePageNotFound/SparePageNotFound";
+import AdvanceHS from "./pages/advanceHS/AdvanceHS";
+import SparePartView from "./pages/sparePartView/SparePartView";
+import SpareDescription from "./pages/spareDescription/SpareDescription";
+import Sparecompatability from "./pages/spareCompatability/Sparecompatability";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -111,6 +115,11 @@ function App() {
           <Route path="/spare-products" element={<SpareProducts/>}>
           <Route index element={<SpareFilteredItems/>}/>
           </Route>
+
+          <Route path="hs" element={<AdvanceHS/>}/>
+          <Route path="/spare-part-View" element={<SparePartView/>}/>
+          <Route path="/spare-description" element={<SpareDescription/>}/>
+          <Route path="/spare-compatability" element={<Sparecompatability/>}/>
           
           <Route path="*" element={<SparePageNotFound/>}/>
           {/* <Route path="*" element={<PageNotFound/>}/> */}
