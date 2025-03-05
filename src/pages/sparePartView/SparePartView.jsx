@@ -3,6 +3,7 @@ import { HiOutlineChevronRight, HiOutlineChevronLeft } from "react-icons/hi2";
 import SpareHeader from "../../components/header/SpareHeader";
 import { FaStar } from "react-icons/fa";
 import { BsCart2 } from "react-icons/bs";
+import SpareReviewNav from "../spareReviewNav/SpareReviewNav";
 
 const SparePartView = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -133,6 +134,8 @@ const SparePartView = () => {
           </div>
         </div>
       </div>
+      
+      <SpareReviewNav/>
     </>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import SpareDashboard from "../spaerDashboard/SpareDashboard";
+import SpareHeader from "../../components/header/SpareHeader";
 
 const categories = [
   { id: 1, title: "Car Battery", img: "/images/sparepart1.png" },
@@ -12,7 +13,9 @@ const categories = [
 
 const SpareProducts = () => {
   return (
+
     <div>
+      <SpareHeader/>
       {/* Banner Image */}
       <img
         src="/images/sparepart9.png"

@@ -14,13 +14,13 @@ const SpareHeader = () => {
         
         {/* Navigation Links */}
         <div className='hidden md:flex gap-6 lg:gap-10 font-semibold'>
-          <NavLink to="/home" className="text-black text-base lg:text-xl hover:text-red-500 transition duration-300">
+          <NavLink to="/spare-parts" className="text-black text-base lg:text-xl hover:text-red-500 transition duration-300">
             Home
           </NavLink>
-          <NavLink to="/shop" className="text-black text-base lg:text-xl hover:text-red-500 transition duration-300">
+          <NavLink to="/spare-products" className="text-black text-base lg:text-xl hover:text-red-500 transition duration-300">
             Shop Parts
           </NavLink>
-          <NavLink to="/about" className="text-black text-base lg:text-xl hover:text-red-500 transition duration-300">
+          <NavLink to="/spare-about" className="text-black text-base lg:text-xl hover:text-red-500 transition duration-300">
             About Us
           </NavLink>
           <NavLink to="/contact" className="text-black text-base lg:text-xl hover:text-red-500 transition duration-300">
