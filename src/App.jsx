@@ -38,6 +38,7 @@ import AdvanceHS from "./pages/advanceHS/AdvanceHS";
 import SparePartView from "./pages/sparePartView/SparePartView";
 import SpareDescription from "./pages/spareDescription/SpareDescription";
 import Sparecompatability from "./pages/spareCompatability/Sparecompatability";
+import SpareReview from "./pages/spareReview/SpareReview";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -120,6 +121,7 @@ function App() {
           <Route path="/spare-part-View" element={<SparePartView/>}/>
           <Route path="/spare-description" element={<SpareDescription/>}/>
           <Route path="/spare-compatability" element={<Sparecompatability/>}/>
+          <Route path="/spare-review" element={<SpareReview/>}/>
           
           <Route path="*" element={<SparePageNotFound/>}/>
           {/* <Route path="*" element={<PageNotFound/>}/> */}
