@@ -34,7 +34,7 @@ const SparePartView = () => {
           <img
             src="/images/sparepart6.png"
             alt="Spare Part"
-            className="mx-auto mb-8 rounded-lg w-1200 h-140 object-cover"
+            className="mx-auto mb-8 rounded-lg w-full max-w-xl object-cover"
           />
           <h2 className="text-3xl font-bold mb-6">Spare Part Title</h2>
           <p className="text-gray-600 text-xl">This is my description page.</p>
@@ -54,9 +54,9 @@ const SparePartView = () => {
           </div>
 
           {/* Small Image Containers (Added Below) */}
-          <div className="flex justify-center items-center gap-4 mt-6">
+          <div className="flex justify-center items-center gap-4 mt-6 overflow-x-auto space-x-4">
             {[1, 2, 3, 4].map((num) => (
-              <div key={num} className="p-4 w-30 h-30 cursor-pointer hover:shadow-md transition">
+              <div key={num} className="p-4 w-24 h-24 cursor-pointer hover:shadow-md transition">
                 <img
                   src={`/images/sparepart${num}.png`}
                   alt={`Spare Part ${num}`}
@@ -120,24 +120,25 @@ const SparePartView = () => {
           <p className="text-gray-400 mt-4">PRICE</p>
           <p className="text-4xl font-semibold text-red-600">NPR 40,000</p>
 
-          <div className="flex items-center space-x-4 mt-4">
-            <div className="border px-7 py-4 bg-gray-200 text-black rounded-lg flex items-center justify-center space-x-2 cursor-pointer hover:bg-gray-300 transition">
+          <div className="flex items-center space-x-4 mt-4 flex-wrap justify-center">
+            <div className="border px-7 py-4 bg-gray-200 text-black rounded-lg flex items-center justify-center space-x-2 cursor-pointer hover:bg-gray-300 transition w-full sm:w-auto">
               <span className="text-xl">
                 <BsCart2 />
               </span>
               <p className="font-medium">Add to Cart</p>
             </div>
 
-            <div className="border px-10 py-4 bg-red-500 text-white rounded-lg flex items-center justify-center cursor-pointer hover:bg-red-600 transition">
+            <div className="border px-10 py-4 bg-red-500 text-white rounded-lg flex items-center justify-center cursor-pointer hover:bg-red-600 transition w-full sm:w-auto mt-4 sm:mt-0">
               <p className="font-medium">BUY NOW</p>
             </div>
           </div>
         </div>
       </div>
-      
-      <SpareReviewNav/>
+
+      <SpareReviewNav />
     </>
   );
 };
 
 export default SparePartView;
+  
