@@ -53,11 +53,6 @@ const SpareShopPart = () => {
     }
   };
 
-  const pageNumbers = [];
-  for (let i = 1; i <= totalPages; i++) {
-    pageNumbers.push(i);
-  }
-
   return (
     <div className="container mx-auto p-6">
       {/* Filter and Sort Section */}
@@ -65,21 +60,11 @@ const SpareShopPart = () => {
         <div className="flex flex-wrap items-center mb-4 sm:mb-0">
           <h3 className="font-semibold mr-4">Filter by Category:</h3>
           <div className="flex flex-wrap space-x-4">
-            <button onClick={() => filterByCategory("All")} className="p-2 border rounded">
-              All
-            </button>
-            <button onClick={() => filterByCategory("Brakes and Suspension")} className="p-2 border rounded">
-              Brakes and Suspension
-            </button>
-            <button onClick={() => filterByCategory("Engine Part")} className="p-2 border rounded">
-              Engine Part
-            </button>
-            <button onClick={() => filterByCategory("Battery & Electricals")} className="p-2 border rounded">
-              Battery & Electricals
-            </button>
-            <button onClick={() => filterByCategory("Oil and Fluids")} className="p-2 border rounded">
-              Oil and Fluids
-            </button>
+            <button onClick={() => filterByCategory("All")} className="p-2 border rounded">All</button>
+            <button onClick={() => filterByCategory("Brakes and Suspension")} className="p-2 border rounded">Brakes and Suspension</button>
+            <button onClick={() => filterByCategory("Engine Part")} className="p-2 border rounded">Engine Part</button>
+            <button onClick={() => filterByCategory("Battery & Electricals")} className="p-2 border rounded">Battery & Electricals</button>
+            <button onClick={() => filterByCategory("Oil and Fluids")} className="p-2 border rounded">Oil and Fluids</button>
           </div>
         </div>
 
@@ -92,8 +77,8 @@ const SpareShopPart = () => {
         </div>
       </div>
 
-      {/* Products Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-6">
+      {/* Products Grid with Two Columns */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {currentItems.map((item) => (
           <div key={item.id} className="border rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition bg-white p-4">
             <img src={item.img} alt={item.name} className="w-full h-72 object-cover mb-4" />
@@ -109,17 +94,15 @@ const SpareShopPart = () => {
         <button onClick={() => goToPage(currentPage - 1)} className="p-2 text-red-500 mx-2" disabled={currentPage === 1}>
           <FaArrowAltCircleLeft size={24} />
         </button>
-
-        {pageNumbers.map((number) => (
+        {[...Array(totalPages)].map((_, index) => (
           <button
-            key={number}
-            onClick={() => goToPage(number)}
-            className={`p-2 text-red-500 font-bold mx-2 ${currentPage === number ? "bg-blue-500 text-white" : ""}`}
+            key={index + 1}
+            onClick={() => goToPage(index + 1)}
+            className={`p-2 text-red-500 font-bold mx-2 ${currentPage === index + 1 ? "bg-blue-500 text-white" : ""}`}
           >
-            {number}
+            {index + 1}
           </button>
         ))}
-
         <button onClick={() => goToPage(currentPage + 1)} className="p-2 text-red-500 mx-2" disabled={currentPage === totalPages}>
           <FaArrowAltCircleRight size={24} />
         </button>

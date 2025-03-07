@@ -4,15 +4,24 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { Outlet } from "react-router-dom";
 
 const SpareDashboard = () => {
+  const [showSidebar, setShowSidebar] = useState(false);
   const [showVehicle, setShowVehicle] = useState(true);
   const [showCategory, setShowCategory] = useState(true);
   const [showPrice, setShowPrice] = useState(true);
   const [priceRange, setPriceRange] = useState([0, 100000]);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-12 gap-4 mt-12">
+    <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 gap-4 mt-12">
+      {/* TOGGLE SIDEBAR BUTTON */}
+      <button
+        className="block sm:hidden bg-red-500 text-white px-4 py-2 rounded-lg mb-4"
+        onClick={() => setShowSidebar(!showSidebar)}
+      >
+        {showSidebar ? "Hide Filters" : "Show Filters"}
+      </button>
+
       {/* FILTER SIDEBAR */}
-      <div className="col-span-1 sm:col-span-3 lg:col-span-3 bg-white p-6 px-4 shadow-md rounded-lg sticky top-20 z-10 max-h-screen overflow-y-auto">
+      <div className={`col-span-1 md:col-span-4 lg:col-span-3 bg-white p-6 px-4 shadow-md rounded-lg sticky top-20 z-10 max-h-screen overflow-y-auto w-full max-w-sm sm:max-w-none mx-auto sm:mx-0 ${showSidebar ? "block" : "hidden"} sm:block`}>
         {/* FILTER HEADER */}
         <div className="flex items-center space-x-3 mb-5">
           <VscSettings className="text-xl text-gray-700" />
@@ -62,13 +71,7 @@ const SpareDashboard = () => {
           </div>
           {showCategory && (
             <div className="space-y-2">
-              {[
-                "Engine Part",
-                "Brakes and Suspension",
-                "Battery & Electricals",
-                "Body and Exterior",
-                "Oil and Fluids",
-              ].map((category, index) => (
+              {["Engine Part", "Brakes and Suspension", "Battery & Electricals", "Body and Exterior", "Oil and Fluids"].map((category, index) => (
                 <div key={index} className="flex items-center space-x-2">
                   <input type="checkbox" id={category} className="cursor-pointer text-xl" />
                   <label htmlFor={category} className="text-sm">{category}</label>
@@ -133,8 +136,7 @@ const SpareDashboard = () => {
       </div>
 
       {/* MAIN CONTENT AREA */}
-      <div className="col-span-1 sm:col-span-2 lg:col-span-9 p-6">
-        {/* Render dynamic route components here */}
+      <div className="col-span-1 md:col-span-4 lg:col-span-9 p-6 w-full">
         <Outlet />
       </div>
     </div>

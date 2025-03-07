@@ -2,7 +2,7 @@ import React from 'react'
 
 const SpareDescription = () => {
   return (
-    <div className='border flex text-left mt-12 w-full p-6'>
+    <div className='border flex flex-col md:flex-row text-left mt-12 w-full p-6'>
       <div className="max-w-4xl w-full">
         <p className="text-lg text-gray-600 mb-4">
           Experience superior engine protection with Bosch Premium FILTECH. Designed with advanced filtration technology, this oil filter captures more contaminants, ensuring a cleaner and longer-lasting engine.

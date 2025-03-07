@@ -21,13 +21,13 @@ const SpareReviewNav = () => {
   return (
     <div>
       {/* Navigation Buttons */}
-      <div className="flex justify-around p-4 bg-gray-200">
+      <div className="flex flex-wrap justify-center sm:justify-around p-4 bg-gray-200">
         <button
           className={`${
             isShowDescription === 'description'
               ? 'underline text-lg font-medium hover:text-amber-500 transition duration-200 rounded-tl-lg'
               : 'text-lg font-medium hover:text-amber-500 transition duration-200'
-          }`}
+          } w-full sm:w-auto mb-2 sm:mb-0 px-4 py-2`}
           onClick={handleDescription}
         >
           Description
@@ -37,7 +37,7 @@ const SpareReviewNav = () => {
             isShowDescription === 'compatibility'
               ? 'underline text-lg font-medium hover:text-amber-500 transition duration-200'
               : 'text-lg font-medium hover:text-amber-500 transition duration-200'
-          }`}
+          } w-full sm:w-auto mb-2 sm:mb-0 px-4 py-2`}
           onClick={handleCompatibility}
         >
           Compatibility
@@ -47,7 +47,7 @@ const SpareReviewNav = () => {
             isShowDescription === 'review'
               ? 'underline text-lg font-medium hover:text-amber-500 transition duration-200 rounded-tr-lg'
               : 'text-lg font-medium hover:text-amber-500 transition duration-200'
-          }`}
+          } w-full sm:w-auto mb-2 sm:mb-0 px-4 py-2`}
           onClick={handleReview}
         >
           Review
