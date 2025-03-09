@@ -127,7 +127,7 @@ function App() {
           
           
           <Route path="*" element={<SparePageNotFound/>}/>
-          {/* <Route path="*" element={<PageNotFound/>}/> */}
+          <Route path="*" element={<PageNotFound/>}/>
         </Routes>
         
         {/* <Footer /> */}

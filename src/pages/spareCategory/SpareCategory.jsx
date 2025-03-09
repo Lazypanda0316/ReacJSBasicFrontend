@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 
 const ImageSlider = () => {
-  const [currentIndex, setCurrentIndex] = useState(0); // Track the current slide
+  const [currentIndex, setCurrentIndex] = useState(0);
   const images = [
     "/images/sparepart1.png",
     "/images/sparepart2.png",
@@ -23,53 +23,55 @@ const ImageSlider = () => {
 
   return (
     <>
-    <div className="flex justify-center mt-20">
+      {/* Heading */}
+      <div className="flex justify-center mt-20">
         <img
           src="/images/sparehand.png"
           alt="Spare Hand"
-          className="w-[50px] sm:w-[250px] md:w-[80px] h-auto" // Responsive image width
+          className="w-[80px] sm:w-[200px] md:w-[80px] h-auto"
         />
       </div>
 
-        <div className="flex items-center mb-6 px-6 sm:px-20 mt-7">
-          <hr className="flex-grow border-t-3 border-red-500" />
-          <span className="mx-4 text-4xl sm:text-5xl md:text-7xl text-red-500 font-bold">
-            Category
-          </span>
-          <hr className="flex-grow border-t-3 border-red-500" />
-        </div>
-        <div className="font-bold text-2xl sm:text-3xl md:text-4xl flex justify-center items-center mb-6 px-6 sm:px-20 mt-10">
-          <p>Shop by Category – Made for Your Ride!</p>
-        </div>
-      
-    <div className="relative w-full mt-20">
-      {/* Slider Images */}
-      <div className="flex justify-center items-center relative w-full h-56 sm:h-72 md:h-96">
-        <img
-          src={images[currentIndex]}
-          alt={`slide-${currentIndex}`}
-          className="w-120 h-120 object-cover transition-all duration-500 ease-in-out"
-        />
+      <div className="flex items-center mb-6 px-6 sm:px-20 mt-7">
+        <hr className="flex-grow border-t-4 border-red-500" />
+        <span className="mx-4 text-4xl sm:text-5xl md:text-7xl text-red-500 font-bold">
+          Category
+        </span>
+        <hr className="flex-grow border-t-4 border-red-500" />
+      </div>
+      <div className="font-bold text-2xl sm:text-3xl md:text-4xl flex justify-center items-center mb-6 px-6 sm:px-20 mt-10">
+        <p>Shop by Category – Made for Your Ride!</p>
       </div>
 
-      {/* Slider Controls - Positioned below the image */}
-      <div className="flex justify-center mt-4">
-        <button
-          type="button"
-          onClick={prevImage}
-          className="p-2 bg-white text-black rounded-full mx-2 sm:mx-4"
-        >
-          <FaArrowAltCircleLeft className="text-xl sm:text-2xl" />
-        </button>
-        <button
-          type="button"
-          onClick={nextImage}
-          className="p-2 bg-white text-black rounded-full mx-2 sm:mx-4"
-        >
-          <FaArrowAltCircleRight className="text-xl sm:text-2xl" />
-        </button>
+      {/* Image Slider */}
+      <div className="flex flex-col items-center mt-10">
+        {/* Image Container */}
+        <div className="relative w-[400px] h-[250px] sm:w-[550px] sm:h-[350px] md:w-[700px] md:h-[450px] flex justify-center items-center">
+          <img
+            src={images[currentIndex]}
+            alt={`slide-${currentIndex}`}
+            className="w-full h-full object-contain transition-all duration-500 ease-in-out"
+          />
+        </div>
+
+        {/* Slider Controls - Below the Image */}
+        <div className="flex justify-center mt-4 space-x-4">
+          <button
+            type="button"
+            onClick={prevImage}
+            className="p-3 text-black rounded-full hover:bg-gray-200 transition"
+          >
+            <FaArrowAltCircleLeft className="text-3xl sm:text-4xl" />
+          </button>
+          <button
+            type="button"
+            onClick={nextImage}
+            className="p-3 text-black rounded-full hover:bg-gray-200 transition"
+          >
+            <FaArrowAltCircleRight className="text-3xl sm:text-4xl" />
+          </button>
+        </div>
       </div>
-    </div>
     </>
   );
 };

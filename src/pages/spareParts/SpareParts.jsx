@@ -63,7 +63,7 @@ const SpareParts = () => {
         <div className="hidden md:block">
           <img
             src="/images/spare1.png"
-            className="rounded-bl-[100px] md:rounded-bl-[200px] h-auto max-h-[90vh] w-auto max-w-lg md:max-w-xl lg:max-w-2xl absolute top-1 right-0"
+            className="rounded-bl-[100px] md:rounded-bl-[200px] h-auto max-h-[100vh] max-w-[170vw] w-[150vw]  md:max-w-xl lg:max-w-3xl absolute top-1 right-0"
             alt="Mechanic Working on Car"
           />
         </div>
