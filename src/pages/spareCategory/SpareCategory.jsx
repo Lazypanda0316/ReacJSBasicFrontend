@@ -3,7 +3,7 @@ import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 
 const ImageSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  
+
   // Array of objects with image and product name
   const products = [
     { image: "/images/sparepart1.png", name: "Premium Oil Filter" },
@@ -48,12 +48,33 @@ const ImageSlider = () => {
       {/* Image Slider */}
       <div className="flex flex-col items-center mt-10">
         {/* Image Container with Red Highlight */}
-        <div className="relative w-[400px] h-[250px] sm:w-[550px] sm:h-[350px] md:w-[450px] md:h-[500px] flex flex-col justify-center items-center bg-red-500 rounded-lg p-4 transition-all duration-500">
-          <img
-            src={products[currentIndex].image}
-            alt={`slide-${currentIndex}`}
-            className="w-full h-full object-contain rounded-md transition-all duration-500 ease-in-out"
-          />
+        <div className="relative w-[600px] sm:w-[750px] md:w-[850px] h-[350px] sm:h-[450px] md:h-[500px] flex justify-center items-center space-x-4">
+          {/* Preview Image Left */}
+          <div className="w-[100px] sm:w-[150px] md:w-[200px] h-full flex justify-center items-center">
+            <img
+              src={products[(currentIndex - 1 + products.length) % products.length].image}
+              alt="prev"
+              className="w-full h-full object-contain rounded-md opacity-50 hover:opacity-100 transition"
+            />
+          </div>
+
+          {/* Main Image */}
+          <div className="relative w-[400px] sm:w-[550px] md:w-[450px] md:h-[500px] flex flex-col justify-center items-center bg-red-500 rounded-lg p-4 transition-all duration-500">
+            <img
+              src={products[currentIndex].image}
+              alt={`slide-${currentIndex}`}
+              className="w-full h-full object-contain rounded-md transition-all duration-500 ease-in-out"
+            />
+          </div>
+
+          {/* Preview Image Right */}
+          <div className="w-[100px] sm:w-[150px] md:w-[200px] h-full flex justify-center items-center">
+            <img
+              src={products[(currentIndex + 1) % products.length].image}
+              alt="next"
+              className="w-full h-full object-contain rounded-md opacity-50 hover:opacity-100 transition"
+            />
+          </div>
         </div>
 
         {/* Product Name */}

@@ -28,12 +28,12 @@ const SpareAboutUs = () => {
       {/* Main Content Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center p-6 mb-10">
         {/* Image Section */}
-        <div className="sm:order-2">
+        <div className="sm:order-1">
           <img src="/images/sparepart8.png" alt="Spare Part" className="w-full h-auto" />
         </div>
 
         {/* Text Content */}
-        <div className="space-y-4 mb-10">
+        <div className="space-y-4 mb-10 sm:order-2">
           <p className="text-gray-700 text-lg sm:text-xl">
             At Eze Garage, we make it easy to find and order authentic car parts online. Our intuitive platform ensures a seamless experience, while our fast delivery service gets your parts to you quickly. Count on us for high-quality parts and the assurance of a smooth transaction.
           </p>
@@ -53,6 +53,10 @@ const SpareAboutUs = () => {
               <span>Customer-Centric Approach – Easy returns, secure payments, and 24/7 support for a hassle-free experience.</span>
             </p>
           </div>
+
+          <button className='border border-black bg-black text-white px-9 py-5 mt-5'>
+            Learn More
+          </button>
         </div>
       </div>
     </>
