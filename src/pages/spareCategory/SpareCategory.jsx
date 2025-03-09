@@ -3,21 +3,23 @@ import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 
 const ImageSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = [
-    "/images/sparepart1.png",
-    "/images/sparepart2.png",
-    "/images/sparepart3.png",
+  
+  // Array of objects with image and product name
+  const products = [
+    { image: "/images/sparepart1.png", name: "Premium Oil Filter" },
+    { image: "/images/sparepart2.png", name: "High-Performance Brake Pads" },
+    { image: "/images/sparepart3.png", name: "Advanced Engine Air Filter" },
   ];
 
   // Move to the next image
   const nextImage = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length);
   };
 
   // Move to the previous image
   const prevImage = () => {
     setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + images.length) % images.length
+      (prevIndex) => (prevIndex - 1 + products.length) % products.length
     );
   };
 
@@ -45,14 +47,19 @@ const ImageSlider = () => {
 
       {/* Image Slider */}
       <div className="flex flex-col items-center mt-10">
-        {/* Image Container */}
-        <div className="relative w-[400px] h-[250px] sm:w-[550px] sm:h-[350px] md:w-[700px] md:h-[450px] flex justify-center items-center">
+        {/* Image Container with Red Highlight */}
+        <div className="relative w-[400px] h-[250px] sm:w-[550px] sm:h-[350px] md:w-[450px] md:h-[500px] flex flex-col justify-center items-center bg-red-500 rounded-lg p-4 transition-all duration-500">
           <img
-            src={images[currentIndex]}
+            src={products[currentIndex].image}
             alt={`slide-${currentIndex}`}
-            className="w-full h-full object-contain transition-all duration-500 ease-in-out"
+            className="w-full h-full object-contain rounded-md transition-all duration-500 ease-in-out"
           />
         </div>
+
+        {/* Product Name */}
+        <p className="mt-4 text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">
+          {products[currentIndex].name}
+        </p>
 
         {/* Slider Controls - Below the Image */}
         <div className="flex justify-center mt-4 space-x-4">
