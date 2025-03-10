@@ -68,7 +68,7 @@ const SparePartView = () => {
         </div>
 
         <div className="p-10 max-w-2xl w-full">
-          <h2 className="text-gray-400 -mt-50">#009Abc3456</h2>
+          <h2 className="text-gray-400 -mt-30">#009Abc3456</h2>
           <h1 className="text-4xl text-red-500 font-semibold mt-3">
             Bosch Premium FILTECH Oil Filter
           </h1>
@@ -120,17 +120,20 @@ const SparePartView = () => {
           <p className="text-gray-400 mt-4">PRICE</p>
           <p className="text-4xl font-semibold text-red-600">NPR 40,000</p>
 
-          <div className="flex items-center space-x-4 mt-4 flex-wrap justify-center">
-            <div className="border px-7 py-4 bg-gray-200 text-black rounded-lg flex items-center justify-center space-x-2 cursor-pointer hover:bg-gray-300 transition w-full sm:w-auto">
+          <div className="flex items-center space-x-4 mt-4 flex-wrap ">
+            <div className="border px-20 py-4 bg-gray-200 text-black flex items-center justify-center space-x-2 cursor-pointer hover:bg-gray-300 transition w-full sm:w-auto">
               <span className="text-xl">
                 <BsCart2 />
               </span>
-              <p className="font-medium">Add to Cart</p>
+              <button className="font-medium">Add to Cart</button>
             </div>
 
-            <div className="border px-10 py-4 bg-red-500 text-white rounded-lg flex items-center justify-center cursor-pointer hover:bg-red-600 transition w-full sm:w-auto mt-4 sm:mt-0">
-              <p className="font-medium">BUY NOW</p>
+            <div className="border px-20 py-4 bg-red-500 text-white flex items-center justify-center cursor-pointer hover:bg-red-600 transition w-full sm:w-auto mt-4 sm:mt-0">
+              <button className="font-medium">BUY NOW</button>
             </div>
+          </div>
+          <div>
+            <button className="border bg-red-300 text-red-800 px-45 py-4 mt-4">Find the Nearest Shop</button>
           </div>
         </div>
       </div>
