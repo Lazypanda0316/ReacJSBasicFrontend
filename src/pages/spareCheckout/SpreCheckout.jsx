@@ -28,7 +28,7 @@ const SpreCheckout = () => {
           <div className="flex items-center justify-between max-w-xl mx-auto">
             {/* Step 1 - Delivery Details */}
             <div className="flex flex-col items-center">
-              <div className="w-14 h-14 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-lg z-10 relative">
+              <div className="w-14 h-14 bg-red-500 text-white rounded-full flex items-center justify-center font-bold text-lg z-10 relative">
                 <FiClipboard size={24} />
               </div>
               <span className="mt-2 text-sm font-medium text-center">Delivery Details</span>

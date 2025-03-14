@@ -30,7 +30,7 @@ const SpareFeatures = () => {
         </div>
 
         {/* Product List */}
-        <div className="flex justify-between gap-4 flex-wrap px-4 sm:px-10 md:px-20">
+        <div className="flex justify-between gap-4 flex-wrap px-4 sm:px-10 md:px-20 mt-3">
           {[1, 2, 3].map((item, index) => (
             <div key={index} className="px-8 w-full sm:w-[45%] md:w-[30%] h-120 bg-white shadow-lg rounded-lg overflow-hidden mb-6 sm:mb-0">
               {/* Image Section */}
@@ -47,7 +47,7 @@ const SpareFeatures = () => {
                 <p className="text-gray-600 text-lg mt-4">
                   Bosch Premium FILTECH Oil Filter – Model 3323 | High-Performance Engine Protection
                 </p>
-                <p className="text-red-500 font-semibold mt-3">Rs 3000/-</p>
+                <p className="text-3xl text-red-500 font-semibold mt-3">Rs 3000/-</p>
               </div>
             </div>
           ))}

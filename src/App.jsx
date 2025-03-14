@@ -41,6 +41,8 @@ import Sparecompatability from "./pages/spareCompatability/Sparecompatability";
 import SpareReview from "./pages/spareReview/SpareReview";
 import SpareReviewNav from "./pages/spareReviewNav/SpareReviewNav";
 import SpreCheckout from "./pages/spareCheckout/SpreCheckout";
+import SpareThankYou from "./pages/spareThankYou/SpareThankYou";
+import SpareContact from "./pages/spareContact/SpareContact";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -118,6 +120,8 @@ function App() {
           <Route path="/spare-products" element={<SpareProducts/>}>
           <Route index element={<SpareFilteredItems/>}/>
           </Route>
+          <Route path="thankyou" element={<SpareThankYou/>}/>
+          <Route path="contact" element={<SpareContact/>}/>
           <Route path="/check-out" element={<SpreCheckout/>}/>
           <Route path="hs" element={<AdvanceHS/>}/>
           <Route path="/spare-part-View" element={<SparePartView/>}/>
