@@ -28,7 +28,7 @@ const SpareContact = () => {
       </div>
 
       {/* Contact Information and Form Layout */}
-      <div className="mt-5 p-5 flex flex-col lg:flex-row gap-8">
+      <div className="mt-5 p-5 flex flex-col lg:flex-row gap-8 px-24">
         {/* Left Side: Contact Details */}
         <div className="w-full lg:w-1/2 p-8 rounded-lg shadow-md bg-gray-100">
           <h1 className="text-2xl font-medium mb-4">Get in Touch with Us</h1>
@@ -163,8 +163,8 @@ const SpareContact = () => {
           </form>
         </div>
       </div>
-      <div className="mt-5">
-        <p className="font-semibold text-2xl mb-5 px-10 ">Live map Location:</p>
+      <div className="mt-5 px-24 py-2">
+        <p className="font-semibold text-2xl mb-5 ">Live map Location:</p>
   <iframe
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.3534017702455!2d85.33569987611371!3d27.706372825533208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19002114198f%3A0x52f208002bfa067!2sCodesc%20Nepal%20Pvt%20LTd!5e0!3m2!1sen!2snp!4v1741940604796!5m2!1sen!2snp"
     width="100%" // Ensure width takes up 100% of the container width
