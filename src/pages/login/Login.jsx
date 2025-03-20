@@ -1,10 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import ExtraHeader from "../../components/header/ExtraHeader";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { userLogin } from "../../redux/actionSlice/authAction/authAction";
+import { toast } from "react-toastify";
+import { setClearError } from "../../redux/features/authSlice/authSlice";
 
 const Login = () => {
+  const { isLoading, error } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [loginValue, setLoginValue] = useState({
     email: "",
     password: "",
@@ -19,9 +26,15 @@ const Login = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Login Form Submitted successFully!");
-    alert("Login Form Submitted successFully!");
+    dispatch(userLogin({loginValue,toast,navigate}))
   };
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+      dispatch(setClearError());
+    }
+  }, [error, dispatch]);
   return (
     <div className="relative min-h-screen">
       <ExtraHeader />
@@ -38,7 +51,7 @@ const Login = () => {
           <h1 className="font-bold text-2xl text-gray-700 text-center mb-6">
             Welcome!
           </h1>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label className="block text-gray-700">Email</label>
               <input
@@ -66,8 +79,11 @@ const Login = () => {
                 Forgot Password?
               </button>
             </div>
-            <button className="w-full bg-gradient-to-r from-fuchsia-500 to-blue-800 text-white p-3 rounded-lg transition duration-300 hover:bg-blue-700">
-              Login
+            <button
+              className="w-full bg-gradient-to-r from-fuchsia-500 to-blue-800 text-white p-3 rounded-lg transition duration-300 hover:bg-blue-700"
+              disabled={isLoading}
+            >
+              {isLoading ? "Signin..." : "Login"}
             </button>
             <p className="text-center mt-4">
               Don't have an account?{" "}

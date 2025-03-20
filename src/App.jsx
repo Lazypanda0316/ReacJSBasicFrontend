@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
 import Home from "./pages/home/Home";
 import Footer from "./components/footer/Footer";
 import AboutUs from "./pages/aboutUs/AboutUs";
@@ -45,6 +46,7 @@ import SpareThankYou from "./pages/spareThankYou/SpareThankYou";
 import SpareContact from "./pages/spareContact/SpareContact";
 
 function App() {
+
   const [items, setItems] = useState([]);
   const [expanded, setExpanded] = useState({});
 
@@ -71,6 +73,7 @@ function App() {
   return (
     <>
       <Router>
+      <ToastContainer />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route

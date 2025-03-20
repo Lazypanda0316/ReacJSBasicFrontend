@@ -1,19 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ExtraHeader from "../../components/header/ExtraHeader";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { userRegister } from "../../redux/actionSlice/authAction/authAction";
+import { toast } from "react-toastify";
+import { setClearError } from "../../redux/features/authSlice/authSlice";
 
 const Signup = () => {
+  const { isLoading, error } = useSelector((state) => state.auth);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [registerValue, setRegisterValue] = useState({
     fullName: "",
     email: "",
-    address: "",
-    contact: "",
+    mobile: "",
     password: "",
     confirmPassword: "",
   });
 
-  const { fullName, email, address, contact, password, confirmPassword } =
-    registerValue;
+  const { fullName, email, mobile, password, confirmPassword } = registerValue;
 
   const handleChange = (e) => {
     let { name, value } = e.target;
@@ -25,9 +31,19 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Submitted successFully!");
-    alert("Form Submitted successFully!");
+    if(password !==confirmPassword){
+      return toast.error("Password is Incorrect")
+    }
+    dispatch(userRegister({ registerValue, toast, navigate }));
   };
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+      dispatch(setClearError());
+    }
+  }, [error, dispatch]);
+  
 
   return (
     <div className="relative min-h-screen">
@@ -71,25 +87,13 @@ const Signup = () => {
             </div>
 
             <div className="mb-2">
-              <label className="block text-gray-700">Address</label>
-              <input
-                type="text"
-                className="mb-2 w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Enter Your Address"
-                name="address"
-                value={address}
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="mb-2">
               <label className="block text-gray-700">Contact</label>
               <input
                 type="text"
                 className="mb-2 w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Enter Your Contact Number"
-                name="contact"
-                value={contact}
+                name="mobile"
+                value={mobile}
                 onChange={handleChange}
               />
             </div>
@@ -124,8 +128,11 @@ const Signup = () => {
               </p>
             </label>
 
-            <button className="mb-2 w-full bg-gradient-to-r from-fuchsia-500 to-blue-800 text-white p-2 rounded-lg transition duration-300 hover:bg-blue-700">
-              Sign Up
+            <button
+              className="mb-2 w-full bg-gradient-to-r from-fuchsia-500 to-blue-800 text-white p-2 rounded-lg transition duration-300 hover:bg-blue-700"
+              disabled={isLoading}
+            >
+              {isLoading ? "Signing up..." : "Sign Up"}
             </button>
           </form>
 
