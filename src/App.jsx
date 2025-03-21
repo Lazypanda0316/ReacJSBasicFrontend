@@ -44,6 +44,7 @@ import SpareReviewNav from "./pages/spareReviewNav/SpareReviewNav";
 import SpreCheckout from "./pages/spareCheckout/SpreCheckout";
 import SpareThankYou from "./pages/spareThankYou/SpareThankYou";
 import SpareContact from "./pages/spareContact/SpareContact";
+import SpareUserInfo from "./pages/spareUserInfo/SpareUserInfo";
 
 function App() {
 
@@ -132,6 +133,7 @@ function App() {
           <Route path="/spare-compatability" element={<Sparecompatability/>}/>
           <Route path="/spare-review" element={<SpareReview/>}/>
           <Route path="srv" element={<SpareReviewNav/>}/>
+          <Route path="/SUI" element={<SpareUserInfo/>}/>
           
           
           <Route path="*" element={<SparePageNotFound/>}/>

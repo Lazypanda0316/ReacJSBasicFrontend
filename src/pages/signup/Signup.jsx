@@ -18,6 +18,8 @@ const Signup = () => {
     password: "",
     confirmPassword: "",
   });
+  const [avatar,setAvatar] = useState(null)
+  const [avatarPreview,setAvatarPreview] = useState(null)
 
   const { fullName, email, mobile, password, confirmPassword } = registerValue;
 
@@ -28,13 +30,34 @@ const Signup = () => {
       [name]: value,
     }));
   };
+  const handleFileInputChange = (e) => {
+    const file = e.target.files[0]
+    console.log(file)
+    if(file){
+      const reader = new FileReader()
+      reader.readAsDataURL(file)
+
+      reader.onloadend = ()=>{
+        setAvatarPreview(reader.result)
+        setAvatar(file)
+
+      }
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(password !==confirmPassword){
-      return toast.error("Password is Incorrect")
+    if (password !== confirmPassword) {
+      return toast.error("Password is Incorrect");
     }
-    dispatch(userRegister({ registerValue, toast, navigate }));
+    const formData = new FormData()
+    formData.append("fullName",fullName)
+    formData.append("email",email)
+    formData.append("password",password)
+    formData.append("avatar",avatar)
+    formData.append("mobile",mobile)
+
+    dispatch(userRegister({ formData, toast, navigate }));
   };
 
   useEffect(() => {
@@ -43,7 +66,6 @@ const Signup = () => {
       dispatch(setClearError());
     }
   }, [error, dispatch]);
-  
 
   return (
     <div className="relative min-h-screen">
@@ -120,6 +142,19 @@ const Signup = () => {
                 vlaue={confirmPassword}
                 onChange={handleChange}
               />
+            </div>
+            <div className="mb-2">
+              <input
+                type="file"
+                accept="image/*"
+                name="avatar"
+                placeholder="Please upload file"
+                className="border rounded-sm px-4 py-2 text-gray-500"
+                onChange={handleFileInputChange}
+              />
+              {avatarPreview && (
+                <img src={avatarPreview} alt="avatarPreview"/>
+              )}
             </div>
             <label className="flex items-center space-x-2 mb-3">
               <input type="checkbox" className="w-4 h-4" />

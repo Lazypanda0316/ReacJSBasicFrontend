@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getProducts, userLogin, userRegister } from "../../actionSlice/authAction/authAction";
+import { getProducts, getProfile, userLogin, userRegister } from "../../actionSlice/authAction/authAction";
 
 const authSlice = createSlice({
   name: "auth",
@@ -12,7 +12,7 @@ const authSlice = createSlice({
     isAuthenticated: false,
   },
   reducers: {
-    setLogin: (state) => {
+    setLogout: (state) => {
       state.error = null;
       state.user = null;
       localStorage.clear();
@@ -61,7 +61,19 @@ const authSlice = createSlice({
         state.error = action.payload.message || "An Error Occured";
         
       })
+
+      .addCase(getProfile.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getProfile.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.user = action.payload.data;
+      })
+      .addCase(getProfile.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload?.message || "An error occured";
+      })
   },
 });
-export const { setClearError } = authSlice.actions;
+export const { setClearError,setLogout } = authSlice.actions;
 export default authSlice.reducer;
