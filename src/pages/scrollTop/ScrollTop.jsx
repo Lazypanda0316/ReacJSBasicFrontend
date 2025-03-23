@@ -38,7 +38,7 @@ const ScrollTop = () => {
             position: 'fixed',
             bottom: '20px',
             right: '20px',
-            backgroundColor: '#1D4ED8',
+            backgroundColor: 'red',
             color: 'white',
             border: 'none',
             borderRadius: '50%',
