@@ -31,7 +31,6 @@ import SpareServices from "./pages/spareServices/SpareServices";
 import SpareFooter from "./components/footer/SpareFooter";
 import SpareAboutUs from "./pages/spareAboutUs/SpareAboutUs";
 import SpareShopPart from "./pages/spareShopPart/SpareShopPart";
-import SpareDashboard from "./pages/spaerDashboard/SpareDashboard";
 import SpareFilteredItems from "./pages/spareFilteredItem/SpareFilteredItems";
 import SpareProducts from "./pages/sapreProducts/SpareProducts";
 import SparePageNotFound from "./pages/sparePageNotFound/SparePageNotFound";
@@ -45,6 +44,7 @@ import SpreCheckout from "./pages/spareCheckout/SpreCheckout";
 import SpareThankYou from "./pages/spareThankYou/SpareThankYou";
 import SpareContact from "./pages/spareContact/SpareContact";
 import SpareUserInfo from "./pages/spareUserInfo/SpareUserInfo";
+import SpareDashboard from "./pages/spaerDashboard/SpareDashboard";
 
 function App() {
 
@@ -114,7 +114,7 @@ function App() {
           <Route path="/spare-footer" element={<SpareFooter/>}/>
           <Route path="/spare-about" element={<SpareAboutUs/>}/>
           <Route path="/spare-Shop" element={<SpareShopPart/>}/>
-          <Route path="/spare-dash" eement={<SpareDashboard/>}/>
+          <Route path="/spare-dashboard" eement={<SpareDashboard/>}/>
           <Route path="/spare-products" element={<SpareProducts/>}/>
 
           <Route path="/spare-shop" element={<SpareShopPart/>}>
@@ -127,7 +127,7 @@ function App() {
           <Route path="thankyou" element={<SpareThankYou/>}/>
           <Route path="contact" element={<SpareContact/>}/>
           <Route path="/check-out" element={<SpreCheckout/>}/>
-          <Route path="hs" element={<AdvanceHS/>}/>
+          <Route path="/hs" element={<AdvanceHS/>}/>
           <Route path="/spare-part-View" element={<SparePartView/>}/>
           <Route path="/spare-description" element={<SpareDescription/>}/>
           <Route path="/spare-compatability" element={<Sparecompatability/>}/>
