@@ -45,6 +45,8 @@ import SpareThankYou from "./pages/spareThankYou/SpareThankYou";
 import SpareContact from "./pages/spareContact/SpareContact";
 import SpareUserInfo from "./pages/spareUserInfo/SpareUserInfo";
 import SpareDashboard from "./pages/spaerDashboard/SpareDashboard";
+import UganDashboar from "./components/uganDashboard/UganDashboar";
+import EditProduct from "./components/admin/editProduct/EditProduct";
 
 function App() {
 
@@ -92,6 +94,8 @@ function App() {
             <Route path="all-mail" element={<AllMail />} /> 
 
             <Route path="add-product" element={<AddProduct />} />
+            <Route path="edit-product/:id" element={<EditProduct />} />
+
           </Route>
 
           <Route path="/project" element={<Projects />} />
@@ -134,6 +138,8 @@ function App() {
           <Route path="/spare-review" element={<SpareReview/>}/>
           <Route path="srv" element={<SpareReviewNav/>}/>
           <Route path="/SUI" element={<SpareUserInfo/>}/>
+
+          <Route path="ugan" element={<UganDashboar/>}/>
           
           
           <Route path="*" element={<SparePageNotFound/>}/>

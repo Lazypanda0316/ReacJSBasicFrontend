@@ -1,13 +1,16 @@
 import React, { useEffect } from "react";
 import { FaTrash, FaEdit } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setAdminClearError } from "../../../redux/features/adminSlice/adminSlice";
-import { allProducts } from "../../../redux/actionSlice/adminAction/adminAction";
+import { allProducts, deleteProductAction } from "../../../redux/actionSlice/adminAction/adminAction";
 import { devAPIURL } from "../../../redux/api/api";
+import { toast } from "react-toastify";
 
 const AllMail = () => {
-  const { isLoading, error, products } = useSelector((state) => state.admin);
+  const { isLoading, error, isError, products } = useSelector(
+    (state) => state.admin
+  );
   const dispatch = useDispatch();
   const imageURL = devAPIURL.replace("/api", "");
 
@@ -18,8 +21,18 @@ const AllMail = () => {
   }, [dispatch, error]);
 
   useEffect(() => {
+    if (isError) {
+      dispatch(setAdminClearError());
+    }
+  }, [dispatch, isError]);
+
+  useEffect(() => {
     dispatch(allProducts());
   }, [dispatch]);
+
+  const handleDelete = (id) => {
+    dispatch(deleteProductAction({id,toast}));
+  };
 
   return (
     <div className="p-6">
@@ -63,10 +76,16 @@ const AllMail = () => {
                     />
                   </td>
                   <td className="px-6 py-4 text-center flex justify-center gap-4">
-                    <button className="text-blue-500 hover:text-blue-700">
+                    <Link
+                      to={`/admin-dashboard/edit-product/${item._id}`}
+                      className="text-blue-500 hover:text-blue-700"
+                    >
                       <FaEdit size={16} />
-                    </button>
-                    <button className="text-red-500 hover:text-red-700">
+                    </Link>
+                    <button
+                      className="text-red-500 hover:text-red-700 cursor-pointer "
+                      onClick={() => handleDelete(item._id)}
+                    >
                       <FaTrash size={16} />
                     </button>
                   </td>

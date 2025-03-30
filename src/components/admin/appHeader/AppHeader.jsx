@@ -3,13 +3,26 @@ import { TiThMenu } from "react-icons/ti";
 import { MdArrowDropDown } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { RiLogoutBoxRFill } from "react-icons/ri";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { setLogout } from "../../../redux/features/authSlice/authSlice";
+import { toast } from "react-toastify";
 
 const AppHeader = () => {
   const [isAppNameDropdownOpen, setIsAppNameDropdownOpen] = useState(false);
+  const dispatch = useDispatch()
+  const navigtae = useNavigate()
 
   const toggleDropdown = () => {
     setIsAppNameDropdownOpen(!isAppNameDropdownOpen);
   };
+
+  const handleLogout = ()=>{
+    dispatch(setLogout())
+    toast.success("Logout successFully!")
+    navigtae("/login")
+
+  }
 
   return (
     <div className="w-full flex items-center justify-between bg-gray-900 text-white px-64 py-6 shadow-md relative">
@@ -40,10 +53,10 @@ const AppHeader = () => {
                 <CgProfile className="w-5 h-5 text-gray-500" />
                 <span className="ml-3">Profile</span>
               </li>
-              <li className="flex items-center px-4 py-2 hover:bg-gray-200 cursor-pointer">
+              <button className="flex items-center px-4 py-2 hover:bg-gray-200 cursor-pointer" onClick={handleLogout}>
                 <RiLogoutBoxRFill className="w-5 h-5 text-gray-500" />
                 <span className="ml-3">Log Out</span>
-              </li>
+              </button>
             </ul>
           </div>
         )}
