@@ -47,6 +47,7 @@ import SpareUserInfo from "./pages/spareUserInfo/SpareUserInfo";
 import SpareDashboard from "./pages/spaerDashboard/SpareDashboard";
 import UganDashboar from "./components/uganDashboard/UganDashboar";
 import EditProduct from "./components/admin/editProduct/EditProduct";
+import ProductDisplay from "./pages/productDisplay/ProductDisplay";
 
 function App() {
 
@@ -139,7 +140,8 @@ function App() {
           <Route path="srv" element={<SpareReviewNav/>}/>
           <Route path="/SUI" element={<SpareUserInfo/>}/>
 
-          <Route path="ugan" element={<UganDashboar/>}/>
+          <Route path="/ugan" element={<UganDashboar/>}/>
+          <Route path="/productV" element={<ProductDisplay/>}/>
           
           
           <Route path="*" element={<SparePageNotFound/>}/>

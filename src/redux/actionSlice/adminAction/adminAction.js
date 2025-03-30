@@ -68,3 +68,17 @@ export const allProducts = createAsyncThunk(
     }
   );
 
+  
+  export const editProductAction = createAsyncThunk(
+    "admin/editProductAction",
+    async ({id,formData,toast}, { rejectWithValue }) => {
+      try {
+        const response = await API.put(`/food/${id}`,formData);
+        toast.success(response.data.message || "product update successFully!")
+        return response.data;
+      } catch (error) {
+        return rejectWithValue(error.response.data);
+      }
+    }
+  );
+

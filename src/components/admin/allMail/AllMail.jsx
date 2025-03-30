@@ -62,29 +62,29 @@ const AllMail = () => {
               </tr>
             </thead>
             <tbody>
-              {products?.map((item, index) => (
-                <tr key={item._id} className="border-b dark:border-gray-700">
+              {products && products?.map((item, index) => (
+                <tr key={item?._id} className="border-b dark:border-gray-700">
                   <td className="px-6 py-4 text-sm">{index + 1}</td>
-                  <td className="px-6 py-4 text-sm">{item.foodTitle}</td>
-                  <td className="px-6 py-4 text-sm">Rs. {item.price}</td>
-                  <td className="px-6 py-4 text-sm">{item.stock}</td>
+                  <td className="px-6 py-4 text-sm">{item?.foodTitle}</td>
+                  <td className="px-6 py-4 text-sm">Rs. {item?.price}</td>
+                  <td className="px-6 py-4 text-sm">{item?.stock}</td>
                   <td className="px-6 py-4 text-sm">
                     <img
-                      src={`${imageURL}/gallery/${item.foodImage}`}
-                      alt={item.foodTitle}
+                      src={`${imageURL}/gallery/${item?.foodImage}`}
+                      alt={item?.foodTitle}
                       className="h-8 w-8 object-contain"
                     />
                   </td>
                   <td className="px-6 py-4 text-center flex justify-center gap-4">
                     <Link
-                      to={`/admin-dashboard/edit-product/${item._id}`}
+                      to={`/admin-dashboard/edit-product/${item?._id}`}
                       className="text-blue-500 hover:text-blue-700"
                     >
                       <FaEdit size={16} />
                     </Link>
                     <button
                       className="text-red-500 hover:text-red-700 cursor-pointer "
-                      onClick={() => handleDelete(item._id)}
+                      onClick={() => handleDelete(item?._id)}
                     >
                       <FaTrash size={16} />
                     </button>

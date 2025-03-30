@@ -3,15 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { setAdminClearError } from "../../../redux/features/adminSlice/adminSlice";
-import { singleProduct } from "../../../redux/actionSlice/adminAction/adminAction";
+import {
+  editProductAction,
+  singleProduct,
+} from "../../../redux/actionSlice/adminAction/adminAction";
 import { devAPIURL } from "../../../redux/api/api";
 
 const EditProduct = () => {
-  const { isLoading, error,product } = useSelector((state) => state.admin);
-  const {id} = useParams()
-    let imageURl = devAPIURL.replace("/api","")
-  
-
+  const { loading, error,isError, product } = useSelector((state) => state.admin);
+  const { id } = useParams();
+  let imageURl = devAPIURL.replace("/api", "");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ const EditProduct = () => {
 
   const { foodTitle, foodDescription, price, stock } = productValue;
 
-  const [foodImage, setFoodImage] = useState(null);
+  const [foodImage, setFoodImage] = useState(null); //usestate rerenders the component
   const [foodImagePreview, setFoodImagePreview] = useState(null);
 
   const handleChange = (e) => {
@@ -46,19 +47,17 @@ const EditProduct = () => {
     }
   };
 
-  useEffect(()=>{
-    if(product){
-        setProductValue({
-            foodTitle:product.foodTitle || "",
-            foodDescription:product.foodDescription || "",
-            price:product.price || "",
-            stock:product.stock || ""
-
-        })
-        setFoodImagePreview(`${imageURl}/gallery/${product.foodImage || null}`)
-
+  useEffect(() => {
+    if (product) {
+      setProductValue({
+        foodTitle: product.foodTitle || "",
+        foodDescription: product.foodDescription || "",
+        price: product.price || "",
+        stock: product.stock || "",
+      });
+      setFoodImagePreview(`${imageURl}/gallery/${product.foodImage || null}`);
     }
-  },[product])
+  }, [product]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -69,27 +68,29 @@ const EditProduct = () => {
     formData.append("foodImage", foodImage);
     formData.append("stock", stock);
 
-    // dispatch(EditProduct({ formData, toast, navigate }));
+    dispatch(editProductAction({ id, formData, toast, navigate }));
   };
 
-  useEffect(()=>{
-    if(id){
-        dispatch(singleProduct(id))
+  useEffect(() => {
+    if (id) {
+      dispatch(singleProduct(id));
     }
-  },[dispatch,id])
+  }, [dispatch, id]);
 
   useEffect(() => {
     if (error) {
-      toast.error(error);
       dispatch(setAdminClearError());
     }
-  }, [dispatch, error]);
+  }, [dispatch, error]); //  "[]" every thing in this are dependency. \\ when dependencies changes the dependencies state changes when executed. \\ if the bracket is not there it will execute at every rerender. \\ if the bracket is empty there it will run at first render only
+
+  useEffect(() => {
+    toast.error(isError);
+    dispatch(setAdminClearError());
+  }, [dispatch,isError]);
 
   return (
     <div className="max-w-4xl mx-auto p-10 bg-white shadow-lg rounded-lg w-3/4">
-      <h2 className="text-3xl font-bold text-gray-800 mb-6">
-      Edit Product
-      </h2>
+      <h2 className="text-3xl font-bold text-gray-800 mb-6">Edit Product</h2>
       <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-6">
         {/* Product Name */}
         <div>
@@ -137,9 +138,7 @@ const EditProduct = () => {
         </div>
 
         <div className="col-span-2">
-          <label className="block text-gray-700 font-semibold">
-            stock
-          </label>
+          <label className="block text-gray-700 font-semibold">stock</label>
           <textarea
             name="stock"
             value={stock}
@@ -170,9 +169,9 @@ const EditProduct = () => {
           <button
             type="submit"
             className="w-full bg-red-500 text-white py-3 rounded-lg hover:bg-red-600 transition"
-            disabled={isLoading}
+            disabled={loading}
           >
-            {isLoading ? "Loading..." : "Edit Product"}
+            {loading ? "Loading..." : "Edit Product"}
           </button>
         </div>
       </form>
