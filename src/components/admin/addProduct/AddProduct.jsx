@@ -104,7 +104,7 @@ const AddProduct = () => {
           <textarea
             name="foodDescription"
             value={foodDescription}
-            onChange={handleChange}
+            onChange={handleChange} 
             required
             className="w-full mt-2 p-3 border rounded-lg"
             placeholder="Enter product description"
@@ -112,10 +112,9 @@ const AddProduct = () => {
         </div>
 
         <div className="col-span-2">
-          <label className="block text-gray-700 font-semibold">
-            stock
-          </label>
-          <textarea
+          <label className="block text-gray-700 font-semibold">stock</label>
+          <input
+            type="number"
             name="stock"
             value={stock}
             onChange={handleChange}

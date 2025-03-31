@@ -3,10 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { setAdminClearError } from "../../../redux/features/adminSlice/adminSlice";
-import {
-  editProductAction,
-  singleProduct,
-} from "../../../redux/actionSlice/adminAction/adminAction";
+import {editProductAction,singleProduct,} from "../../../redux/actionSlice/adminAction/adminAction";
 import { devAPIURL } from "../../../redux/api/api";
 
 const EditProduct = () => {

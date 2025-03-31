@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { allProducts } from "./productAction/productAction";
-
+import { allProducts, publicProductDetails,  } from "./productAction/productAction";
 
 const productSlice = createSlice({
   name: "admin",
@@ -20,7 +19,7 @@ const productSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-    .addCase(allProducts.pending, (state) => {
+      .addCase(allProducts.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(allProducts.fulfilled, (state, action) => {
@@ -31,7 +30,17 @@ const productSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload.message;
       })
-     
+      .addCase(publicProductDetails.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(publicProductDetails.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.product = action.payload.data;
+      })
+      .addCase(publicProductDetails.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload.message;
+      });
   },
 });
 export const { setProductClearError } = productSlice.actions;

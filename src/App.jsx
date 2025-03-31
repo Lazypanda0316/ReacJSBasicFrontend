@@ -48,6 +48,7 @@ import SpareDashboard from "./pages/spaerDashboard/SpareDashboard";
 import UganDashboar from "./components/uganDashboard/UganDashboar";
 import EditProduct from "./components/admin/editProduct/EditProduct";
 import ProductDisplay from "./pages/productDisplay/ProductDisplay";
+import ProductDisplayDetail from "./pages/productDisplayDetail/ProductDisplayDetail";
 
 function App() {
 
@@ -142,6 +143,7 @@ function App() {
 
           <Route path="/ugan" element={<UganDashboar/>}/>
           <Route path="/productV" element={<ProductDisplay/>}/>
+          <Route path="/product-details/:id" element={<ProductDisplayDetail/>}/>
           
           
           <Route path="*" element={<SparePageNotFound/>}/>
